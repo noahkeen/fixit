@@ -23,7 +23,8 @@ def fetch_and_build(fix_version):
                     'name': name,
                     'desc': " ".join(desc.text.split())
                 }
-    with open(f'js/fixFields_{fix_version}.json', 'w') as outfile:
+    with open(f'js/fixFields_{fix_version}.js', 'w') as outfile:
+        outfile.write(f'let  fix_fields_{fix_version}=')
         json.dump(result_map, outfile)
 
 

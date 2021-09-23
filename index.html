@@ -7,10 +7,11 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/kylefox/jquery-tablesort@master/jquery.tablesort.js"></script>
 
+
     <style>
         table {
             table-layout: fixed;
-            width: 30%;
+            width: 25%;
             text-align: left;
         }
 
@@ -19,18 +20,20 @@
         }
 
         thead th:nth-child(2) {
-            width: 30%;
+            width: 25%;
         }
 
         thead th:nth-child(3) {
-            width: 60%;
+            width: 65%;
         }
 
         th, td {
             margin: 4px;
             border: 0.5px solid black;
         }
+
         div {
+            margin-top: 10px;
             margin-bottom: 10px;
         }
     </style>
@@ -45,6 +48,7 @@
 <div>
     <button id="parseFixButton">Parse</button>
     <button id="clearButton">Clear</button>
+    <button id="sampleButton">Sample</button>
 </div>
 <div>
     <div id="results_table"></div>
@@ -57,10 +61,28 @@
         return input_string.match(/^[0-9a-z]+$/) != null && input_string !== '.' && input_string !== '='
     }
 
+    function guessFixVersion(fix) {
+        let ver_guess = fix.substring(6, 9)
+        switch (ver_guess) {
+            case "4.0":
+            case "4.1":
+            case "4.3":
+            case "4.4":
+            case "4.5":
+                return ver_guess.replace('.', '');
+            default:
+                return "42";
+        }
+    }
+
     function getEscapeCharacter(fix) {
         let escp_guess = fix.substring(9, 10)
-        if (isValdEscapeCharacter(escp_guess)) {
-            if (fix.indexOf('^')) {
+        if (escp_guess === '^') {
+            escp_guess = fix.substring(9, 11)
+        } else if (isValdEscapeCharacter(escp_guess)) {
+            if (escp_guess === '^') {
+                escp_guess = fix.substring(9, 11)
+            } else if (fix.indexOf('^')) {
                 escp_guess = '^'
             } else if (fix.indexOf('|')) {
                 escp_guess = '|'
@@ -94,34 +116,47 @@
         $table.tablesort();
     }
 
+
+
+
     $(function () {
         self = this;
-        self.fix_fields = {};
-        $.getJSON('https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_42.json', function (data) {
-            self.fix_fields = data;
-        });
 
-        $("#parseFixButton").on("click", function (a, b, c) {
+        self.parse_fix = function (escape_char, raw_fix, fix_fields) {
             let results_rows = []
-            let raw_fix = $("#rawFix").val()
-            let escape_char = getEscapeCharacter(raw_fix)
             let fields = raw_fix.split(escape_char)
             fields.forEach(function (field) {
                 let field_val = field.split("=")
+                let desc = '';
+                if (field_val[0] in fix_fields) {
+                    desc = fix_fields[field_val[0]];
+                }
                 let found_field = {
                     key: field_val[0],
                     val: field_val[1],
-                    data: self.fix_fields[field_val[0]]
+                    data: desc
                 }
                 results_rows.push(found_field);
-                console.log(found_field)
             })
             generateTable(results_rows)
-            console.log(escape_char)
+        }
+
+        $("#parseFixButton").on("click", function () {
+            let raw_fix = $("#rawFix").val().trim()
+            let fix_ver = guessFixVersion(raw_fix)
+            $.getScript("https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_" + fix_ver + ".js", function (data) {
+                let escape_char = getEscapeCharacter(raw_fix)
+                if (!escape_char) return;
+                self.parse_fix(escape_char, raw_fix, data)
+            });
         });
 
         $("#clearButton").on('click', function () {
             $('#rawFix').val('')
+        });
+
+        $("#sampleButton").on('click', function () {
+            $('#rawFix').val('8=FIX.4.2^A9=088^A35=0^A34=9523^A52=20210916-18:24:14^A49=41702TEST^A56=EPOPFIXTEST^A112=20210916-18:24:14.377^A10=139^A')
         });
 
     });
