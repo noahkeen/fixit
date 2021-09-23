@@ -6,7 +6,12 @@
     <title>Fix It</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/kylefox/jquery-tablesort@master/jquery.tablesort.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_5.0.js"></script>
 
     <style>
         table {
@@ -42,20 +47,22 @@
 <body>
 
 <div>
-    <textarea placeholder="Fix goes here" id="rawFix" rows="4" cols="50"></textarea>
+    <textarea placeholder="Fix goes here" id="rawFix" rows="6" cols="78"></textarea>
 </div>
 
 <div>
     <button id="parseFixButton">Parse</button>
     <button id="clearButton">Clear</button>
     <button id="sampleButton">Sample</button>
+    <span style="color: red; font-size: x-small" id="notes"></span>
 </div>
 <div>
     <div id="results_table"></div>
 </div>
-
+<div>
+    <footer style="font-size: x-small; color: cornflowerblue" title="Made by noah (https://github.com/noahkeen) - Fix Field Descriptions from https://btobits.com/fixopaedia/index.html">info</footer>
+</div>
 <script type="text/javascript">
-    let self;
 
     function isValdEscapeCharacter(input_string) {
         return input_string.match(/^[0-9a-z]+$/) != null && input_string !== '.' && input_string !== '='
@@ -63,6 +70,23 @@
 
     function guessFixVersion(fix) {
         return fix.substring(6, 9)
+    }
+
+    function getFixFieldData(fix_ver) {
+        switch (fix_ver) {
+            case "4.0":
+                return fix_fields_40;
+            case "4.1":
+                return fix_fields_41;
+            case "4.2":
+                return fix_fields_42;
+            case "4.3":
+                return fix_fields_43;
+            case "4.4":
+                return fix_fields_44;
+            case "5.0":
+                return fix_fields_50;
+        }
     }
 
     function getEscapeCharacter(fix) {
@@ -87,65 +111,72 @@
         return escp_guess;
     }
 
-    function generateTable(rows_to_add) {
-        let $table = $('<table>');
-        $table.append('<thead>').children('thead')
-            .append('<tr />').children('tr').append('<th>Tag</th><th>Name</th><th>Value</th>');
-        let $tbody = $table.append('<tbody />').children('tbody');
-
-        rows_to_add.forEach(function (row) {
-            $tbody.append('<tr title=\"' + row.data.desc + '\"/>').children('tr:last')
-                .append("<td>" + row.key + "</td>")
-                .append("<td>" + row.data.name + "</td>")
-                .append("<td>" + row.val + "</td>");
-
-        })
-
-        $('#results_table').empty()
-        $table.appendTo('#results_table');
-        $table.tablesort();
-    }
-
 
     $(function () {
-        self = this;
+        let self = this;
 
         self.parse_fix = function (escape_char, raw_fix, fix_fields) {
             let results_rows = []
             let fields = raw_fix.split(escape_char)
             fields.forEach(function (field) {
-                let field_val = field.split("=")
-                let desc = '';
-                if (field_val[0] in fix_fields) {
-                    desc = fix_fields[field_val[0]];
+                if (field.trim().length > 0) {
+                    let field_val = field.split("=")
+                    let desc = '';
+                    if (field_val[0] in fix_fields) {
+                        desc = fix_fields[field_val[0]];
+                    }
+                    let found_field = {
+                        key: field_val[0],
+                        val: field_val[1],
+                        data: desc
+                    }
+                    results_rows.push(found_field);
                 }
-                let found_field = {
-                    key: field_val[0],
-                    val: field_val[1],
-                    data: desc
-                }
-                results_rows.push(found_field);
             })
-            generateTable(results_rows)
+            self.generateTable(results_rows)
+        }
+
+        self.clear = function () {
+            $('#rawFix').val('')
+            $('#results_table').empty()
+            $("#notes").html('')
+        }
+
+        self.generateTable = function (rows_to_add) {
+            let $table = $('<table>');
+            $table.append('<thead>').children('thead')
+                .append('<tr />').children('tr').append('<th>Tag</th><th>Name</th><th>Value</th>');
+            let $tbody = $table.append('<tbody />').children('tbody');
+
+            rows_to_add.forEach(function (row) {
+                $tbody.append('<tr title=\"' + row.data.desc + '\"/>').children('tr:last')
+                    .append("<td>" + row.key + "</td>")
+                    .append("<td>" + row.data.name + "</td>")
+                    .append("<td>" + row.val + "</td>");
+
+            })
+
+            $('#results_table').empty()
+            $table.appendTo('#results_table');
+            $table.tablesort();
         }
 
         $("#parseFixButton").on("click", function () {
             let raw_fix = $("#rawFix").val().trim()
+            let escape_char = getEscapeCharacter(raw_fix)
+            if (!escape_char) return;
             let fix_ver = guessFixVersion(raw_fix)
-            $.getScript("https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_" + fix_ver + ".js", function (data) {
-                let escape_char = getEscapeCharacter(raw_fix)
-                if (!escape_char) return;
-                let fix_fields_to_use = window['fix_fields_' + fix_ver.replace('.','')]
-                self.parse_fix(escape_char, raw_fix, fix_fields_to_use)
-            });
+            let fix_fields_to_use = getFixFieldData(fix_ver)
+            $("#notes").html('Fix Ver: ' + fix_ver + ' detected, Using Delim: ' + escape_char)
+            self.parse_fix(escape_char, raw_fix, fix_fields_to_use)
         });
 
         $("#clearButton").on('click', function () {
-            $('#rawFix').val('')
+            self.clear();
         });
 
         $("#sampleButton").on('click', function () {
-            $('#rawFix').val('8=FIX.4.2^A9=088^A35=0^A34=9523^A52=20210916-18:24:14^A49=41702TEST^A56=EPOPFIXTEST^A112=20210916-18:24:14.377^A10=139^A')
+            $('#rawFix').val('8=FIX.4.2^A9=088^A35=0^A34=9523^A52=20210916-18:24:14^A49=902101TEST^A56=SAMPFIXTEST^A112=20210916-18:24:14.377^A10=139^A')
         });
 
     });
