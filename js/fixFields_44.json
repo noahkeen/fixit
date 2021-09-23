@@ -1,0 +1,3650 @@
+{
+  "1": {
+    "name": "Account",
+    "desc": "Account mnemonic as agreed between buy and sell sides, e.g. broker and institution or investor/intermediary and fund manager."
+  },
+  "2": {
+    "name": "AdvId",
+    "desc": "Unique identifier of Advertisement (7) message."
+  },
+  "3": {
+    "name": "AdvRefID",
+    "desc": "Reference identifier used with CANCEL and REPLACE transaction types."
+  },
+  "4": {
+    "name": "AdvSide",
+    "desc": "Broker's side of advertised trade"
+  },
+  "5": {
+    "name": "AdvTransType",
+    "desc": "Identifies Advertisement (7) message transaction type"
+  },
+  "6": {
+    "name": "AvgPx",
+    "desc": "Calculated average price of all fills on this order."
+  },
+  "7": {
+    "name": "BeginSeqNo",
+    "desc": "Message sequence number of first message in range to be resent"
+  },
+  "8": {
+    "name": "BeginString",
+    "desc": "Identifies beginning of new message and protocol version. ALWAYS FIRST FIELD IN MESSAGE. (Always unencrypted)"
+  },
+  "9": {
+    "name": "BodyLength",
+    "desc": "Message length, in bytes, is verified by counting the number of characters in the message following the BodyLength (9) field up to, and including, the delimiter immediately preceding the CheckSum (10) field. ALWAYS SECOND FIELD IN MESSAGE. (Always unencrypted) For example, for message 8=FIX 4.4^9=5^35=0^10=10^, the BodyLength is 5 for 35=0^"
+  },
+  "10": {
+    "name": "CheckSum",
+    "desc": "Three byte, simple checksum (see Volume 2: \"Checksum Calculation\" of FIX Specification for description). ALWAYS LAST FIELD IN MESSAGE; i.e. serves, with the trailing <SOH>, as the end-of-message delimiter. Always defined as three characters. (Always unencrypted)"
+  },
+  "11": {
+    "name": "ClOrdID",
+    "desc": "Unique identifier for Order as assigned by the buy-side (institution, broker, intermediary etc.) (identified by SenderCompID (49) or OnBehalfOfCompID (115) as appropriate). Uniqueness must be guaranteed within a single trading day. Firms, particularly those which electronically submit multi-day orders, trade globally or throughout market close periods, should ensure uniqueness across days, for example by embedding a date within the ClOrdID (11) field."
+  },
+  "12": {
+    "name": "Commission",
+    "desc": "Commission. Note if CommType (13) is percentage, Commission of 5% should be represented as .05."
+  },
+  "13": {
+    "name": "CommType",
+    "desc": "Commission type"
+  },
+  "14": {
+    "name": "CumQty",
+    "desc": "Total quantity (e.g. number of shares) filled."
+  },
+  "15": {
+    "name": "Currency",
+    "desc": "Identifies currency used for price. Absence of this field is interpreted as the default for the security. It is recommended that systems provide the currency value whenever possible."
+  },
+  "16": {
+    "name": "EndSeqNo",
+    "desc": "Message sequence number of last message in range to be resent. If request is for a single message BeginSeqNo (7) = EndSeqNo (16) . If request is for all messages subsequent to a particular message, EndSeqNo (16) = \"0\" (representing infinity)."
+  },
+  "17": {
+    "name": "ExecID",
+    "desc": "Unique identifier of Execution Report (8) message as assigned by sell-side (broker, exchange, ECN) (will be 0 (zero) for ExecType (150) =I (Order Status))."
+  },
+  "18": {
+    "name": "ExecInst",
+    "desc": "Instructions for order handling on exchange trading floor. If more than one instruction is applicable to an order, this field can contain multiple instructions separated by space."
+  },
+  "19": {
+    "name": "ExecRefID",
+    "desc": "Reference identifier used with Trade Cancel and Trade Correct execution types."
+  },
+  "21": {
+    "name": "HandlInst",
+    "desc": "Instructions for order handling on Broker trading floor"
+  },
+  "22": {
+    "name": "SecurityIDSource",
+    "desc": "Identifies class or source of the SecurityID (48) value. Required if SecurityID (48) is specified."
+  },
+  "23": {
+    "name": "IOIid",
+    "desc": "Unique identifier of Indication of Interest (6) message."
+  },
+  "25": {
+    "name": "IOIQltyInd",
+    "desc": "Relative quality of indication"
+  },
+  "26": {
+    "name": "IOIRefID",
+    "desc": "Reference identifier used with CANCEL and REPLACE, transaction types."
+  },
+  "27": {
+    "name": "IOIQty",
+    "desc": "Quantity (e.g. number of shares) in numeric form or relative size."
+  },
+  "28": {
+    "name": "IOITransType",
+    "desc": "Identifies Indication of Interest (6) message transaction type"
+  },
+  "29": {
+    "name": "LastCapacity",
+    "desc": "Broker capacity in order execution"
+  },
+  "30": {
+    "name": "LastMkt",
+    "desc": "Market of execution for last fill, or an indication of the market where an order was routed"
+  },
+  "31": {
+    "name": "LastPx",
+    "desc": "Price of this (last) fill."
+  },
+  "32": {
+    "name": "LastQty",
+    "desc": "Quantity (e.g. shares) bought/sold on this (last) fill."
+  },
+  "33": {
+    "name": "LinesOfText",
+    "desc": "Identifies number of lines of text body"
+  },
+  "34": {
+    "name": "MsgSeqNum",
+    "desc": "Integer message sequence number."
+  },
+  "35": {
+    "name": "MsgType",
+    "desc": "Defines message type. ALWAYS THIRD FIELD IN MESSAGE. (Always unencrypted)"
+  },
+  "36": {
+    "name": "NewSeqNo",
+    "desc": "New sequence number"
+  },
+  "37": {
+    "name": "OrderID",
+    "desc": "Unique identifier for Order as assigned by sell-side (broker, exchange, ECN). Uniqueness must be guaranteed within a single trading day. Firms which accept multi-day orders should consider embedding a date within the OrderID (37) field to assure uniqueness across days."
+  },
+  "38": {
+    "name": "OrderQty",
+    "desc": "Quantity ordered. This represents the number of shares for equities or par, face or nominal value for FI instruments."
+  },
+  "39": {
+    "name": "OrdStatus",
+    "desc": "Identifies current status of order."
+  },
+  "40": {
+    "name": "OrdType",
+    "desc": "Order type."
+  },
+  "41": {
+    "name": "OrigClOrdID",
+    "desc": "ClOrdID (11) of the previous order (NOT the initial order of the day) as assigned by the institution, used to identify the previous order in cancel and cancel/replace requests."
+  },
+  "42": {
+    "name": "OrigTime",
+    "desc": "Time of message origination (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\"))"
+  },
+  "43": {
+    "name": "PossDupFlag",
+    "desc": "Indicates possible retransmission of message with this sequence number"
+  },
+  "44": {
+    "name": "Price",
+    "desc": "Price per unit of quantity (e.g. per share)"
+  },
+  "45": {
+    "name": "RefSeqNum",
+    "desc": "Reference message sequence number"
+  },
+  "48": {
+    "name": "SecurityID",
+    "desc": "Security identifier value of SecurityIDSource (22) type (e.g. CUSIP, SEDOL, ISIN, etc). Requires SecurityIDSource (22) ."
+  },
+  "49": {
+    "name": "SenderCompID",
+    "desc": "Assigned value used to identify firm sending message."
+  },
+  "50": {
+    "name": "SenderSubID",
+    "desc": "Assigned value used to identify specific message originator (desk, trader, etc.)"
+  },
+  "52": {
+    "name": "SendingTime",
+    "desc": "Time of message transmission (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\")"
+  },
+  "53": {
+    "name": "Quantity",
+    "desc": "Overall/total quantity (e.g. number of shares)"
+  },
+  "54": {
+    "name": "Side",
+    "desc": "Side of order"
+  },
+  "55": {
+    "name": "Symbol",
+    "desc": "Ticker symbol. Common, \"human understood\" representation of the security. SecurityID (48) value can be specified if no symbol exists (e.g. non-exchange traded Collective Investment Vehicles)."
+  },
+  "56": {
+    "name": "TargetCompID",
+    "desc": "Assigned value used to identify receiving firm."
+  },
+  "57": {
+    "name": "TargetSubID",
+    "desc": "Assigned value used to identify specific individual or unit intended to receive message. \"ADMIN\" reserved for administrative messages not intended for a specific user."
+  },
+  "58": {
+    "name": "Text",
+    "desc": "Free format text string"
+  },
+  "59": {
+    "name": "TimeInForce",
+    "desc": "Specifies how long the order remains in effect. Absence of this field is interpreted as DAY. NOTE not applicable to CIV Orders."
+  },
+  "60": {
+    "name": "TransactTime",
+    "desc": "Time of execution/order creation (expressed in UTC - Universal Time Coordinated, also known as \"GMT\")"
+  },
+  "61": {
+    "name": "Urgency",
+    "desc": "Urgency flag"
+  },
+  "62": {
+    "name": "ValidUntilTime",
+    "desc": "Indicates expiration time of indication message (always expressed in UTC - Universal Time Coordinated, also known as \"GMT\")"
+  },
+  "63": {
+    "name": "SettlType",
+    "desc": "Indicates order settlement period. If present, SettlDate (64) overrides this field. If both SettlType (63) and SettlDate (64) are omitted, the default for SettlType (63) is 0 (Regular)."
+  },
+  "64": {
+    "name": "SettlDate",
+    "desc": "Specific date of trade settlement (SettlementDate) in YYYYMMDD format."
+  },
+  "65": {
+    "name": "SymbolSfx",
+    "desc": "Additional information about the security (e.g. preferred, warrants, etc.). Note also see SecurityType (167) ."
+  },
+  "66": {
+    "name": "ListID",
+    "desc": "Unique identifier for list as assigned by institution, used to associate multiple individual orders. Uniqueness must be guaranteed within a single trading day. Firms which generate multi-day orders should consider embedding a date within the ListID (66) field to assure uniqueness across days."
+  },
+  "67": {
+    "name": "ListSeqNo",
+    "desc": "Sequence of individual order within list (i.e. ListSeqNo (67) of TotNoOrders (68) , 2 of 25, 3 of 25, . . . )"
+  },
+  "68": {
+    "name": "TotNoOrders",
+    "desc": "Total number of list order entries across all messages. Should be the sum of all NoOrders (73) in each message that has repeating list order entries related to the same ListID (66) . Used to support fragmentation."
+  },
+  "69": {
+    "name": "ListExecInst",
+    "desc": "Free format text message containing list handling and execution instructions."
+  },
+  "70": {
+    "name": "AllocID",
+    "desc": "Unique identifier for Allocation Instruction (J) message."
+  },
+  "71": {
+    "name": "AllocTransType",
+    "desc": "Identifies allocation transaction type"
+  },
+  "72": {
+    "name": "RefAllocID",
+    "desc": "Reference identifier to be used with AllocTransType (71) = Replace or Cancel"
+  },
+  "73": {
+    "name": "NoOrders",
+    "desc": "Indicates number of orders to be combined for average pricing and allocation."
+  },
+  "74": {
+    "name": "AvgPxPrecision",
+    "desc": "Indicates number of decimal places to be used for average pricing. Absence of this field indicates that default precision arranged by the broker/institution is to be used."
+  },
+  "75": {
+    "name": "TradeDate",
+    "desc": "Indicates date of trade referenced in this message in YYYYMMDD format. Absence of this field indicates current day (expressed in local time at place of trade)."
+  },
+  "77": {
+    "name": "PositionEffect",
+    "desc": "Indicates whether the resulting position after a trade should be an opening position or closing position. Used for omnibus accounting - where accounts are held on a gross basis instead of being netted together."
+  },
+  "78": {
+    "name": "NoAllocs",
+    "desc": "Number of repeating AllocAccount (79) / AllocPrice (366) entries."
+  },
+  "79": {
+    "name": "AllocAccount",
+    "desc": "Sub-account mnemonic"
+  },
+  "80": {
+    "name": "AllocQty",
+    "desc": "Quantity to be allocated to specific sub-account"
+  },
+  "81": {
+    "name": "ProcessCode",
+    "desc": "Processing code for sub-account. Absence of this field in AllocAccount (79) / AllocPrice (366) / AllocQty (80) / ProcessCode (81) instance indicates regular trade."
+  },
+  "82": {
+    "name": "NoRpts",
+    "desc": "Total number of reports within series."
+  },
+  "83": {
+    "name": "RptSeq",
+    "desc": "Sequence number of message within report series."
+  },
+  "84": {
+    "name": "CxlQty",
+    "desc": "Total quantity canceled for this order."
+  },
+  "85": {
+    "name": "NoDlvyInst",
+    "desc": "Number of delivery instruction fields to in repeating group."
+  },
+  "87": {
+    "name": "AllocStatus",
+    "desc": "Identifies status of allocation."
+  },
+  "88": {
+    "name": "AllocRejCode",
+    "desc": "Identifies reason for rejection."
+  },
+  "89": {
+    "name": "Signature",
+    "desc": "Electronic signature"
+  },
+  "90": {
+    "name": "SecureDataLen",
+    "desc": "Length of encrypted message"
+  },
+  "91": {
+    "name": "SecureData",
+    "desc": "Actual encrypted data stream"
+  },
+  "93": {
+    "name": "SignatureLength",
+    "desc": "Number of bytes in signature field."
+  },
+  "94": {
+    "name": "EmailType",
+    "desc": "Email message type."
+  },
+  "95": {
+    "name": "RawDataLength",
+    "desc": "Number of bytes in raw data field."
+  },
+  "96": {
+    "name": "RawData",
+    "desc": "Unformatted raw data, can include bitmaps, word processor documents, etc."
+  },
+  "97": {
+    "name": "PossResend",
+    "desc": "Indicates that message may contain information that has been sent under another sequence number."
+  },
+  "98": {
+    "name": "EncryptMethod",
+    "desc": "Method of encryption."
+  },
+  "99": {
+    "name": "StopPx",
+    "desc": "Price per unit of quantity (e.g. per share)"
+  },
+  "100": {
+    "name": "ExDestination",
+    "desc": "Execution destination as defined by institution when order is entered."
+  },
+  "102": {
+    "name": "CxlRejReason",
+    "desc": "Code to identify reason for cancel rejection."
+  },
+  "103": {
+    "name": "OrdRejReason",
+    "desc": "Code to identify reason for order rejection."
+  },
+  "104": {
+    "name": "IOIQualifier",
+    "desc": "Code to qualify Indication of Interest (6) use."
+  },
+  "106": {
+    "name": "Issuer",
+    "desc": "Name of security issuer (e.g. International Business Machines, GNMA)."
+  },
+  "107": {
+    "name": "SecurityDesc",
+    "desc": "Security description."
+  },
+  "108": {
+    "name": "HeartBtInt",
+    "desc": "Heartbeat interval (seconds)"
+  },
+  "110": {
+    "name": "MinQty",
+    "desc": "Minimum quantity of an order to be executed."
+  },
+  "111": {
+    "name": "MaxFloor",
+    "desc": "Maximum quantity (e.g. number of shares) within an order to be shown on the exchange floor at any given time."
+  },
+  "112": {
+    "name": "TestReqID",
+    "desc": "Identifier included in Test Request (1) message to be returned in resulting Heartbeat (0)"
+  },
+  "113": {
+    "name": "ReportToExch",
+    "desc": "Identifies party of trade responsible for exchange reporting."
+  },
+  "114": {
+    "name": "LocateReqd",
+    "desc": "Indicates whether the broker is to locate the stock in conjunction with a short sell order."
+  },
+  "115": {
+    "name": "OnBehalfOfCompID",
+    "desc": "Assigned value used to identify firm originating message if the message was delivered by a third party i.e. the third party firm identifier would be delivered in the SenderCompID (49) field and the firm originating the message in this field."
+  },
+  "116": {
+    "name": "OnBehalfOfSubID",
+    "desc": "Assigned value used to identify specific message originator (i.e. trader) if the message was delivered by a third party"
+  },
+  "117": {
+    "name": "QuoteID",
+    "desc": "Unique identifier for quote"
+  },
+  "118": {
+    "name": "NetMoney",
+    "desc": "Total amount due as the result of the transaction (e.g. for Buy order - principal + commission + fees) reported in currency of execution."
+  },
+  "119": {
+    "name": "SettlCurrAmt",
+    "desc": "Total amount due expressed in settlement currency (includes the effect of the forex transaction)"
+  },
+  "120": {
+    "name": "SettlCurrency",
+    "desc": "Currency code of settlement denomination."
+  },
+  "121": {
+    "name": "ForexReq",
+    "desc": "Indicates request for forex accommodation trade to be executed along with security transaction."
+  },
+  "122": {
+    "name": "OrigSendingTime",
+    "desc": "Original time of message transmission (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\") when transmitting orders as the result of a resend request."
+  },
+  "123": {
+    "name": "GapFillFlag",
+    "desc": "Indicates that the Sequence Reset (4) message is replacing administrative or application messages which will not be resent."
+  },
+  "124": {
+    "name": "NoExecs",
+    "desc": "No of execution repeating group entries to follow."
+  },
+  "126": {
+    "name": "ExpireTime",
+    "desc": "Time/Date of order expiration (always expressed in UTC - Universal Time Coordinated, also known as \"GMT\")"
+  },
+  "127": {
+    "name": "DKReason",
+    "desc": "Reason for execution rejection."
+  },
+  "128": {
+    "name": "DeliverToCompID",
+    "desc": "Assigned value used to identify the firm targeted to receive the message if the message is delivered by a third party i.e. the third party firm identifier would be delivered in the TargetCompID (56) field and the ultimate receiver firm ID in this field."
+  },
+  "129": {
+    "name": "DeliverToSubID",
+    "desc": "Assigned value used to identify specific message recipient (i.e. trader) if the message is delivered by a third party"
+  },
+  "130": {
+    "name": "IOINaturalFlag",
+    "desc": "Indicates that Indication of Interest (6) is the result of an existing agency order or a facilitation position resulting from an agency order, not from principal trading or order solicitation activity."
+  },
+  "131": {
+    "name": "QuoteReqID",
+    "desc": "Unique identifier for Quote Request (R)"
+  },
+  "132": {
+    "name": "BidPx",
+    "desc": "Bid price/rate"
+  },
+  "133": {
+    "name": "OfferPx",
+    "desc": "Offer price/rate"
+  },
+  "134": {
+    "name": "BidSize",
+    "desc": "Quantity of bid"
+  },
+  "135": {
+    "name": "OfferSize",
+    "desc": "Quantity of offer"
+  },
+  "136": {
+    "name": "NoMiscFees",
+    "desc": "Number of repeating groups of miscellaneous fees"
+  },
+  "137": {
+    "name": "MiscFeeAmt",
+    "desc": "Miscellaneous fee value"
+  },
+  "138": {
+    "name": "MiscFeeCurr",
+    "desc": "Currency of miscellaneous fee"
+  },
+  "139": {
+    "name": "MiscFeeType",
+    "desc": "Indicates type of miscellaneous fee."
+  },
+  "140": {
+    "name": "PrevClosePx",
+    "desc": "Previous closing price of security."
+  },
+  "141": {
+    "name": "ResetSeqNumFlag",
+    "desc": "Indicates that the both sides of the FIX session should reset sequence numbers."
+  },
+  "142": {
+    "name": "SenderLocationID",
+    "desc": "Assigned value used to identify specific message originator's location (i.e. geographic location and/or desk, trader)"
+  },
+  "143": {
+    "name": "TargetLocationID",
+    "desc": "Assigned value used to identify specific message destination's location (i.e. geographic location and/or desk, trader)"
+  },
+  "144": {
+    "name": "OnBehalfOfLocationID",
+    "desc": "Assigned value used to identify specific message originator's location (i.e. geographic location and/or desk, trader) if the message was delivered by a third party"
+  },
+  "145": {
+    "name": "DeliverToLocationID",
+    "desc": "Assigned value used to identify specific message recipient's location (i.e. geographic location and/or desk, trader) if the message was delivered by a third party"
+  },
+  "146": {
+    "name": "NoRelatedSym",
+    "desc": "Specifies the number of repeating symbols specified."
+  },
+  "147": {
+    "name": "Subject",
+    "desc": "The subject of an Email (C) message"
+  },
+  "148": {
+    "name": "Headline",
+    "desc": "The headline of a News (B) message"
+  },
+  "149": {
+    "name": "URLLink",
+    "desc": "A URI (Uniform Resource Identifier) or URL (Uniform Resource Locator) link to additional information (i.e. http://en.wikipedia.org/wiki/Uniform_Resource_Locator ). See \" Appendix 6-B FIX Fields Based Upon Other Standards \" of FIX."
+  },
+  "150": {
+    "name": "ExecType",
+    "desc": "Describes the specific Execution Report (8) (i.e. Pending Cancel) while OrdStatus (39) will always identify the current order status (i.e. Partially Filled)"
+  },
+  "151": {
+    "name": "LeavesQty",
+    "desc": "Quantity open for further execution. If the OrdStatus (39) is Canceled, DoneForTheDay, Expired, Calculated, or Rejected (in which case the order is no longer active) then LeavesQty (151) could be 0, otherwise LeavesQty (151) = OrderQty (38) - CumQty (14) ."
+  },
+  "152": {
+    "name": "CashOrderQty",
+    "desc": "Specifies the approximate order quantity desired in total monetary units vs. as tradeable units (e.g. number of shares). The broker or fund manager (for CIV orders) would be responsible for converting and calculating a tradeable unit (e.g. share) quantity ( OrderQty (38) ) based upon this amount to be used for the actual order and subsequent messages."
+  },
+  "153": {
+    "name": "AllocAvgPx",
+    "desc": "AvgPx (6) for a specific AllocAccount (79) ."
+  },
+  "154": {
+    "name": "AllocNetMoney",
+    "desc": "NetMoney (118) for a specific AllocAccount (79)"
+  },
+  "155": {
+    "name": "SettlCurrFxRate",
+    "desc": "Foreign exchange rate used to compute SettlCurrAmt (119) from Currency (15) to SettlCurrency (120)"
+  },
+  "156": {
+    "name": "SettlCurrFxRateCalc",
+    "desc": "Specifies whether or not SettlCurrFxRate (155) should be multiplied or divided."
+  },
+  "157": {
+    "name": "NumDaysInterest",
+    "desc": "Number of Days of Interest for convertible bonds and fixed income. Note value may be negative."
+  },
+  "158": {
+    "name": "AccruedInterestRate",
+    "desc": "The amount the buyer compensates the seller for the portion of the next coupon interest payment the seller has earned but will not receive from the issuer because the issuer will send the next coupon payment to the buyer. Accrued Interest Rate is the annualized Accrued Interest amount divided by the purchase price of the bond."
+  },
+  "159": {
+    "name": "AccruedInterestAmt",
+    "desc": "Amount of Accrued Interest for convertible bonds and fixed income"
+  },
+  "160": {
+    "name": "SettlInstMode",
+    "desc": "Indicates mode used for Settlement Instructions (T) message."
+  },
+  "161": {
+    "name": "AllocText",
+    "desc": "Free format text related to a specific AllocAccount (79) ."
+  },
+  "162": {
+    "name": "SettlInstID",
+    "desc": "Unique identifier for Settlement Instruction."
+  },
+  "163": {
+    "name": "SettlInstTransType",
+    "desc": "Settlement Instructions (T) message transaction type"
+  },
+  "164": {
+    "name": "EmailThreadID",
+    "desc": "Unique identifier for an email thread (new and chain of replies)"
+  },
+  "165": {
+    "name": "SettlInstSource",
+    "desc": "Indicates source of Settlement Instructions"
+  },
+  "167": {
+    "name": "SecurityType",
+    "desc": "Indicates type of security. See also the Product (460) and CFICode (461) fields. It is recommended that CFICode (461) be used instead of SecurityType (167) for non-Fixed Income instruments."
+  },
+  "168": {
+    "name": "EffectiveTime",
+    "desc": "Time the details within the message should take effect (always expressed in UTC (Universal Time Coordinated), also known as \"GMT\")"
+  },
+  "169": {
+    "name": "StandInstDbType",
+    "desc": "Identifies the Standing Instruction database used"
+  },
+  "170": {
+    "name": "StandInstDbName",
+    "desc": "Name of the Standing Instruction database represented with StandInstDbType (169) (i.e. the Global Custodian's name)."
+  },
+  "171": {
+    "name": "StandInstDbID",
+    "desc": "Unique identifier used on the Standing Instructions database for the Standing Instructions to be referenced."
+  },
+  "172": {
+    "name": "SettlDeliveryType",
+    "desc": "Identifies type of settlement"
+  },
+  "188": {
+    "name": "BidSpotRate",
+    "desc": "Bid F/X spot rate."
+  },
+  "189": {
+    "name": "BidForwardPoints",
+    "desc": "Bid F/X forward points added to spot rate. May be a negative value."
+  },
+  "190": {
+    "name": "OfferSpotRate",
+    "desc": "Offer F/X spot rate."
+  },
+  "191": {
+    "name": "OfferForwardPoints",
+    "desc": "Offer F/X forward points added to spot rate. May be a negative value."
+  },
+  "192": {
+    "name": "OrderQty2",
+    "desc": "OrderQty (38) of the future part of a F/X swap order."
+  },
+  "193": {
+    "name": "SettDate2",
+    "desc": "SettlDate (64) of the future part of a F/X swap order."
+  },
+  "194": {
+    "name": "LastSpotRate",
+    "desc": "F/X spot rate."
+  },
+  "195": {
+    "name": "LastForwardPoints",
+    "desc": "F/X forward points added to LastSpotRate (194) . May be a negative value."
+  },
+  "196": {
+    "name": "AllocLinkID",
+    "desc": "Can be used to link two different Allocation Instruction (J) messages (each with unique AllocID (70) ) together, i.e. for F/X \"Netting\" or \"Swaps\". Should be unique."
+  },
+  "197": {
+    "name": "AllocLinkType",
+    "desc": "Identifies the type of Allocation Instruction (J) linkage when AllocLinkID (196) is used."
+  },
+  "198": {
+    "name": "SecondaryOrderID",
+    "desc": "Assigned by the party which accepts the order. Can be used to provide the OrderID (37) used by an exchange or executing system."
+  },
+  "199": {
+    "name": "NoIOIQualifiers",
+    "desc": "Number of repeating groups of IOIQualifiers."
+  },
+  "200": {
+    "name": "MaturityMonthYear",
+    "desc": "Can be used with standardized derivatives vs. the MaturityDate (541) field. Month and Year of the maturity (used for standardized futures and options)."
+  },
+  "202": {
+    "name": "StrikePrice",
+    "desc": "Strike Price for an Option."
+  },
+  "203": {
+    "name": "CoveredOrUncovered",
+    "desc": "Used for derivative products, such as options"
+  },
+  "206": {
+    "name": "OptAttribute",
+    "desc": "Can be used for SecurityType (167) =OPT to identify a particular security. Valid values vary by SecurityExchange: For Exchanges: DTB (Frankfurt), HKSE (Hong Kong), and SOFFEX (Zurich) 0-9 = single digit \"version\" number assigned by exchange following capital adjustments (0=current, 1=prior, 2=prior to 1, etc)."
+  },
+  "207": {
+    "name": "SecurityExchange",
+    "desc": "Market used to help identify a security."
+  },
+  "208": {
+    "name": "NotifyBrokerOfCredit",
+    "desc": "Indicates whether or not details should be communicated to BrokerOfCredit (i.e. step-in broker)."
+  },
+  "209": {
+    "name": "AllocHandlInst",
+    "desc": "Indicates how the receiver (i.e. third party) of Allocation Instruction (J) message should handle/process the account details."
+  },
+  "210": {
+    "name": "MaxShow",
+    "desc": "Maximum quantity (e.g. number of shares) within an order to be shown to other customers (i.e. sent via an Indication of Interest (6) )."
+  },
+  "211": {
+    "name": "PegOffsetValue",
+    "desc": "Amount (signed) added to the peg for a pegged order in the context of the PegOffsetType (836)"
+  },
+  "212": {
+    "name": "XmlDataLen",
+    "desc": "Length of the XmlData (213) data block."
+  },
+  "213": {
+    "name": "XmlData",
+    "desc": "Actual XML data stream (e.g. FIXML). See appropriate XML reference (e.g. FIXML). Note: may contain embedded SOH characters."
+  },
+  "214": {
+    "name": "SettlInstRefID",
+    "desc": "Reference identifier for the SettlInstID (162) with Cancel and Replace SettlInstTransType (163) transaction types."
+  },
+  "215": {
+    "name": "NoRoutingIDs",
+    "desc": "Number of repeating groups of RoutingID (217) and RoutingType (216) values."
+  },
+  "216": {
+    "name": "RoutingType",
+    "desc": "Indicates the type of RoutingID (217) specified."
+  },
+  "217": {
+    "name": "RoutingID",
+    "desc": "Assigned value used to identify a specific routing destination."
+  },
+  "218": {
+    "name": "Spread",
+    "desc": "For Fixed Income. Either Swap Spread or Spread to Benchmark depending upon the order type."
+  },
+  "220": {
+    "name": "BenchmarkCurveCurrency",
+    "desc": "Identifies currency used for benchmark curve."
+  },
+  "221": {
+    "name": "BenchmarkCurveName",
+    "desc": "Name of benchmark curve."
+  },
+  "222": {
+    "name": "BenchmarkCurvePoint",
+    "desc": "Point on benchmark curve. Free form values: e.g. \"1Y\", \"7Y\", \"INTERPOLATED\"."
+  },
+  "223": {
+    "name": "CouponRate",
+    "desc": "The rate of interest that, when multiplied by the principal, par value, or face value of a bond, provides the currency amount of the periodic interest payment. The coupon is always cited, along with maturity, in any quotation of a bond's price."
+  },
+  "224": {
+    "name": "CouponPaymentDate",
+    "desc": "Date interest is to be paid. Used in identifying Corporate Bond issues."
+  },
+  "225": {
+    "name": "IssueDate",
+    "desc": "The date on which a bond or stock offering is issued. It may or may not be the same as the effective date (\"Dated Date\") or the date on which interest begins to accrue (\"Interest Accrual Date\")"
+  },
+  "226": {
+    "name": "RepurchaseTerm",
+    "desc": "Number of business days before repurchase of a repo."
+  },
+  "227": {
+    "name": "RepurchaseRate",
+    "desc": "Percent of par at which a Repo will be repaid. Represented as a percent, e.g. .9525 represents 95-1/4 percent of par."
+  },
+  "228": {
+    "name": "Factor",
+    "desc": "For Fixed Income: Amorization Factor for deriving Current face from Original face for ABS or MBS securities, note the fraction may be greater than, equal to or less than 1. In TIPS securities this is the Inflation index."
+  },
+  "229": {
+    "name": "TradeOriginationDate",
+    "desc": "Used with Fixed Income for Muncipal New Issue Market. Agreement in principal between counter-parties prior to actual trade date."
+  },
+  "230": {
+    "name": "ExDate",
+    "desc": "The date when a distribution of interest is deducted from a securities assets or set aside for payment to bondholders. On the ex-date, the securities price drops by the amount of the distribution (plus or minus any market activity)."
+  },
+  "231": {
+    "name": "ContractMultiplier",
+    "desc": "Specifies the ratio or multiply factor to convert from \"nominal\" units (e.g. contracts) to total units (e.g. shares) (e.g. 1.0, 100, 1000, etc). Applicable For Fixed Income, Convertible Bonds, Derivatives, etc."
+  },
+  "232": {
+    "name": "NoStipulations",
+    "desc": "Number of stipulation entries"
+  },
+  "233": {
+    "name": "StipulationType",
+    "desc": "For Fixed Income. Type of Stipulation or Prepayment Speeds."
+  },
+  "234": {
+    "name": "StipulationValue",
+    "desc": "For Fixed Income. Value of stipulation."
+  },
+  "235": {
+    "name": "YieldType",
+    "desc": "Type of yield."
+  },
+  "236": {
+    "name": "Yield",
+    "desc": "Yield percentage."
+  },
+  "237": {
+    "name": "TotalTakedown",
+    "desc": "The price at which the securities are distributed to the different members of an underwriting group for the primary market in Municipals, total gross underwriter's spread."
+  },
+  "238": {
+    "name": "Concession",
+    "desc": "Provides the reduction in price for the secondary market in Muncipals."
+  },
+  "239": {
+    "name": "RepoCollateralSecurityType",
+    "desc": "Identifies the collateral used in the transaction."
+  },
+  "240": {
+    "name": "RedemptionDate",
+    "desc": "Return of investor's principal in a security. Bond redemption can occur before maturity date."
+  },
+  "241": {
+    "name": "UnderlyingCouponPaymentDate",
+    "desc": "Underlying security's CouponPaymentDate. See CouponPaymentDate (224) field for description"
+  },
+  "242": {
+    "name": "UnderlyingIssueDate",
+    "desc": "Underlying security's IssueDate. See IssueDate (225) field for description"
+  },
+  "243": {
+    "name": "UnderlyingRepoCollateralSecurityType",
+    "desc": "Underlying security's RepoCollateralSecurityType. See RepoCollateralSecurityType (239) field for description"
+  },
+  "244": {
+    "name": "UnderlyingRepurchaseTerm",
+    "desc": "Underlying security's RepurchaseTerm. See RepurchaseTerm (226) field for description"
+  },
+  "245": {
+    "name": "UnderlyingRepurchaseRate",
+    "desc": "Underlying security's RepurchaseRate. See RepurchaseRate (227) field for description"
+  },
+  "246": {
+    "name": "UnderlyingFactor",
+    "desc": "Underlying security's Factor. See Factor (228) field for description"
+  },
+  "247": {
+    "name": "UnderlyingRedemptionDate",
+    "desc": "Underlying security's RedemptionDate. See RedemptionDate (240) field for description"
+  },
+  "248": {
+    "name": "LegCouponPaymentDate",
+    "desc": "Multileg instrument's individual leg security's CouponPaymentDate. See CouponPaymentDate (224) field for description"
+  },
+  "249": {
+    "name": "LegIssueDate",
+    "desc": "Multileg instrument's individual leg security's IssueDate. See IssueDate (225) field for description"
+  },
+  "250": {
+    "name": "LegRepoCollateralSecurityType",
+    "desc": "Multileg instrument's individual leg security's RepoCollateralSecurityType. See RepoCollateralSecurityType (239) field for description"
+  },
+  "251": {
+    "name": "LegRepurchaseTerm",
+    "desc": "Multileg instrument's individual leg security's RepurchaseTerm. See RepurchaseTerm (226) field for description"
+  },
+  "252": {
+    "name": "LegRepurchaseRate",
+    "desc": "Multileg instrument's individual leg security's RepurchaseRate. See RepurchaseRate (227) field for description"
+  },
+  "253": {
+    "name": "LegFactor",
+    "desc": "Multileg instrument's individual leg security's Factor. See Factor (228) field for description"
+  },
+  "254": {
+    "name": "LegRedemptionDate",
+    "desc": "Multileg instrument's individual leg security's RedemptionDate. See RedemptionDate (240) field for description"
+  },
+  "255": {
+    "name": "CreditRating",
+    "desc": "An evaluation of a company's ability to repay obligations or its likelihood of not defaulting. These evaluation are provided by Credit Rating Agencies, i.e. S&P, Moody's."
+  },
+  "256": {
+    "name": "UnderlyingCreditRating",
+    "desc": "Underlying security's CreditRating. See CreditRating (255) field for description"
+  },
+  "257": {
+    "name": "LegCreditRating",
+    "desc": "Multileg instrument's individual leg security's CreditRating. See CreditRating (255) field for description"
+  },
+  "258": {
+    "name": "TradedFlatSwitch",
+    "desc": "Driver and part of trade in the event that the Security Master file was wrong at the point of entry"
+  },
+  "259": {
+    "name": "BasisFeatureDate",
+    "desc": "BasisFeatureDate (259) allows requesting firms within fixed income the ability to request an alternative yield-to-worst, -maturity, -extended or other call. This flows through the confirm process."
+  },
+  "260": {
+    "name": "BasisFeaturePrice",
+    "desc": "Price for BasisFeatureDate. See BasisFeatureDate (259)"
+  },
+  "262": {
+    "name": "MDReqID",
+    "desc": "Unique identifier for Market Data Request (V)"
+  },
+  "263": {
+    "name": "SubscriptionRequestType",
+    "desc": "Subscription Request Type"
+  },
+  "264": {
+    "name": "MarketDepth",
+    "desc": "Depth of market for Book Snapshot"
+  },
+  "265": {
+    "name": "MDUpdateType",
+    "desc": "Specifies the type of Market Data update."
+  },
+  "266": {
+    "name": "AggregatedBook",
+    "desc": "Specifies whether or not book entries should be aggregated. Broker option if not specified."
+  },
+  "267": {
+    "name": "NoMDEntryTypes",
+    "desc": "Number of MDEntryType (269) fields requested."
+  },
+  "268": {
+    "name": "NoMDEntries",
+    "desc": "Number of entries in Market Data message."
+  },
+  "269": {
+    "name": "MDEntryType",
+    "desc": "Type Market Data entry."
+  },
+  "270": {
+    "name": "MDEntryPx",
+    "desc": "Price of the Market Data Entry."
+  },
+  "271": {
+    "name": "MDEntrySize",
+    "desc": "Quantity or volume represented by the Market Data Entry."
+  },
+  "272": {
+    "name": "MDEntryDate",
+    "desc": "Date of Market Data Entry."
+  },
+  "273": {
+    "name": "MDEntryTime",
+    "desc": "Time of Market Data Entry."
+  },
+  "274": {
+    "name": "TickDirection",
+    "desc": "Direction of the \"tick\"."
+  },
+  "275": {
+    "name": "MDMkt",
+    "desc": "Market posting quote / trade."
+  },
+  "276": {
+    "name": "QuoteCondition",
+    "desc": "Space-delimited list of conditions describing a quote."
+  },
+  "277": {
+    "name": "TradeCondition",
+    "desc": "Space-delimited list of conditions describing a trade"
+  },
+  "278": {
+    "name": "MDEntryID",
+    "desc": "Unique Market Data Entry identifier."
+  },
+  "279": {
+    "name": "MDUpdateAction",
+    "desc": "Type of Market Data update action."
+  },
+  "280": {
+    "name": "MDEntryRefID",
+    "desc": "Refers to a previous MDEntryID (278) ."
+  },
+  "281": {
+    "name": "MDReqRejReason",
+    "desc": "Reason for the rejection of a Market Data Request (V) ."
+  },
+  "282": {
+    "name": "MDEntryOriginator",
+    "desc": "Originator of a Market Data Entry"
+  },
+  "283": {
+    "name": "LocationID",
+    "desc": "Identification of a Market Maker's location"
+  },
+  "284": {
+    "name": "DeskID",
+    "desc": "Identification of a Market Maker's desk"
+  },
+  "285": {
+    "name": "DeleteReason",
+    "desc": "Reason for deletion."
+  },
+  "286": {
+    "name": "OpenCloseSettlFlag",
+    "desc": "Flag that identifies a market data entry."
+  },
+  "287": {
+    "name": "SellerDays",
+    "desc": "Specifies the number of days that may elapse before delivery of the security"
+  },
+  "288": {
+    "name": "MDEntryBuyer",
+    "desc": "Buying party in a trade"
+  },
+  "289": {
+    "name": "MDEntrySeller",
+    "desc": "Selling party in a trade"
+  },
+  "290": {
+    "name": "MDEntryPositionNo",
+    "desc": "Display position of a bid or offer, numbered from most competitive to least competitive, per market side, beginning with 1."
+  },
+  "291": {
+    "name": "FinancialStatus",
+    "desc": "Identifies a firm's financial status."
+  },
+  "292": {
+    "name": "CorporateAction",
+    "desc": "Identifies the type of Corporate Action."
+  },
+  "293": {
+    "name": "DefBidSize",
+    "desc": "Default Bid Size."
+  },
+  "294": {
+    "name": "DefOfferSize",
+    "desc": "Default Offer Size."
+  },
+  "295": {
+    "name": "NoQuoteEntries",
+    "desc": "The number of quote entries for a QuoteSet."
+  },
+  "296": {
+    "name": "NoQuoteSets",
+    "desc": "The number of sets of quotes in the message."
+  },
+  "297": {
+    "name": "QuoteStatus",
+    "desc": "Identifies the status of the quote acknowledgement."
+  },
+  "298": {
+    "name": "QuoteCancelType",
+    "desc": "Identifies the type of quote cancel."
+  },
+  "299": {
+    "name": "QuoteEntryID",
+    "desc": "Uniquely identifies the quote as part of a QuoteSet."
+  },
+  "300": {
+    "name": "QuoteRejectReason",
+    "desc": "Reason quote was rejected."
+  },
+  "301": {
+    "name": "QuoteResponseLevel",
+    "desc": "Level of Response requested from receiver of quote messages."
+  },
+  "302": {
+    "name": "QuoteSetID",
+    "desc": "Unique id for the QuoteSet."
+  },
+  "303": {
+    "name": "QuoteRequestType",
+    "desc": "Indicates the type of Quote Request (R) being generated"
+  },
+  "304": {
+    "name": "TotNoQuoteEntries",
+    "desc": "Total number of quotes for the QuoteSet across all messages. Should be the sum of all NoQuoteEntries (295) in each message that has repeating quotes that are part of the same QuoteSet."
+  },
+  "305": {
+    "name": "UnderlyingSecurityIDSource",
+    "desc": "Underlying security's SecurityIDSource. See SecurityIDSource (22) field for description"
+  },
+  "306": {
+    "name": "UnderlyingIssuer",
+    "desc": "Underlying security's Issuer. See Issuer (106) field for description"
+  },
+  "307": {
+    "name": "UnderlyingSecurityDesc",
+    "desc": "Underlying security's SecurityDesc. See SecurityDesc (107) field for description"
+  },
+  "308": {
+    "name": "UnderlyingSecurityExchange",
+    "desc": "Underlying security's SecurityExchange (207) . Can be used to identify the underlying security."
+  },
+  "309": {
+    "name": "UnderlyingSecurityID",
+    "desc": "Underlying security's SecurityID. See SecurityID (48) field for description"
+  },
+  "310": {
+    "name": "UnderlyingSecurityType",
+    "desc": "Underlying security's SecurityType (167) ."
+  },
+  "311": {
+    "name": "UnderlyingSymbol",
+    "desc": "Underlying security's Symbol. See Symbol (55) field for description"
+  },
+  "312": {
+    "name": "UnderlyingSymbolSfx",
+    "desc": "Underlying security's SymbolSfx. See SymbolSfx (65) field for description"
+  },
+  "313": {
+    "name": "UnderlyingMaturityMonthYear",
+    "desc": "Underlying security's MaturityMonthYear. Can be used with standardized derivatives vs. the UnderlyingMaturityDate (542) field. See MaturityMonthYear (200) field for description"
+  },
+  "316": {
+    "name": "UnderlyingStrikePrice",
+    "desc": "Underlying security's StrikePrice. See StrikePrice (202) field for description"
+  },
+  "317": {
+    "name": "UnderlyingOptAttribute",
+    "desc": "Underlying security's OptAttribute. See OptAttribute (206) field for description"
+  },
+  "318": {
+    "name": "UnderlyingCurrency",
+    "desc": "Underlying security's Currency. See Currency (15) field for description"
+  },
+  "320": {
+    "name": "SecurityReqID",
+    "desc": "Unique ID of a Security Definition Request (c) ."
+  },
+  "321": {
+    "name": "SecurityRequestType",
+    "desc": "Type of Security Definition Request (c) ."
+  },
+  "322": {
+    "name": "SecurityResponseID",
+    "desc": "Unique ID of a Security Definition (d) message."
+  },
+  "323": {
+    "name": "SecurityResponseType",
+    "desc": "Type of Security Definition (d) message response."
+  },
+  "324": {
+    "name": "SecurityStatusReqID",
+    "desc": "Unique ID of a Security Status Request (e) message."
+  },
+  "325": {
+    "name": "UnsolicitedIndicator",
+    "desc": "Indicates whether or not message is being sent as a result of a subscription request or not."
+  },
+  "326": {
+    "name": "SecurityTradingStatus",
+    "desc": "Identifies the trading status applicable to the transaction."
+  },
+  "327": {
+    "name": "HaltReason",
+    "desc": "Denotes the reason for the Opening Delay or Trading Halt."
+  },
+  "328": {
+    "name": "InViewOfCommon",
+    "desc": "Indicates whether or not the halt was due to Common Stock trading being halted."
+  },
+  "329": {
+    "name": "DueToRelated",
+    "desc": "Indicates whether or not the halt was due to the Related Security being halted."
+  },
+  "330": {
+    "name": "BuyVolume",
+    "desc": "Quantity bought."
+  },
+  "331": {
+    "name": "SellVolume",
+    "desc": "Quantity sold."
+  },
+  "332": {
+    "name": "HighPx",
+    "desc": "Represents an indication of the high end of the price range for a security prior to the open or reopen"
+  },
+  "333": {
+    "name": "LowPx",
+    "desc": "Represents an indication of the low end of the price range for a security prior to the open or reopen"
+  },
+  "334": {
+    "name": "Adjustment",
+    "desc": "Identifies the type of adjustment."
+  },
+  "335": {
+    "name": "TradSesReqID",
+    "desc": "Unique ID of a Trading Session Status (h) message."
+  },
+  "336": {
+    "name": "TradingSessionID",
+    "desc": "Identifier for Trading Session"
+  },
+  "337": {
+    "name": "ContraTrader",
+    "desc": "Identifies the trader (e.g. \"badge number\") of the ContraBroker (375) ."
+  },
+  "338": {
+    "name": "TradSesMethod",
+    "desc": "Method of trading"
+  },
+  "339": {
+    "name": "TradSesMode",
+    "desc": "Trading Session Mode"
+  },
+  "340": {
+    "name": "TradSesStatus",
+    "desc": "State of the trading session."
+  },
+  "341": {
+    "name": "TradSesStartTime",
+    "desc": "Starting time of the trading session"
+  },
+  "342": {
+    "name": "TradSesOpenTime",
+    "desc": "Time of the opening of the trading session"
+  },
+  "343": {
+    "name": "TradSesPreCloseTime",
+    "desc": "Time of the pre-closed of the trading session"
+  },
+  "344": {
+    "name": "TradSesCloseTime",
+    "desc": "Closing time of the trading session"
+  },
+  "345": {
+    "name": "TradSesEndTime",
+    "desc": "End time of the trading session"
+  },
+  "346": {
+    "name": "NumberOfOrders",
+    "desc": "Number of orders in the market."
+  },
+  "347": {
+    "name": "MessageEncoding",
+    "desc": "Type of message encoding (non-ASCII (non-English) characters) used in a message's \"Encoded\" fields."
+  },
+  "348": {
+    "name": "EncodedIssuerLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedIssuer (349) field."
+  },
+  "349": {
+    "name": "EncodedIssuer",
+    "desc": "Encoded (non-ASCII characters) representation of the Issuer (106) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the Issuer (106) field."
+  },
+  "350": {
+    "name": "EncodedSecurityDescLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedSecurityDesc (351) field."
+  },
+  "351": {
+    "name": "EncodedSecurityDesc",
+    "desc": "Encoded (non-ASCII characters) representation of the SecurityDesc (107) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the SecurityDesc (107) field."
+  },
+  "352": {
+    "name": "EncodedListExecInstLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedListExecInst (353) field."
+  },
+  "353": {
+    "name": "EncodedListExecInst",
+    "desc": "Encoded (non-ASCII characters) representation of the ListExecInst (69) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the ListExecInst (69) field."
+  },
+  "354": {
+    "name": "EncodedTextLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedText (355) field."
+  },
+  "355": {
+    "name": "EncodedText",
+    "desc": "Encoded (non-ASCII characters) representation of the Text (58) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the Text (58) field."
+  },
+  "356": {
+    "name": "EncodedSubjectLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedSubject (357) field."
+  },
+  "357": {
+    "name": "EncodedSubject",
+    "desc": "Encoded (non-ASCII characters) representation of the Subject (147) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the Subject (147) field."
+  },
+  "358": {
+    "name": "EncodedHeadlineLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedHeadline (359) field."
+  },
+  "359": {
+    "name": "EncodedHeadline",
+    "desc": "Encoded (non-ASCII characters) representation of the Headline (148) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the Headline (148) field."
+  },
+  "360": {
+    "name": "EncodedAllocTextLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedAllocText (361) field."
+  },
+  "361": {
+    "name": "EncodedAllocText",
+    "desc": "Encoded (non-ASCII characters) representation of the AllocText (161) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the AllocText (161) field."
+  },
+  "362": {
+    "name": "EncodedUnderlyingIssuerLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedUnderlyingIssuer (363) field."
+  },
+  "363": {
+    "name": "EncodedUnderlyingIssuer",
+    "desc": "Encoded (non-ASCII characters) representation of the UnderlyingIssuer (306) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the UnderlyingIssuer (306) field."
+  },
+  "364": {
+    "name": "EncodedUnderlyingSecurityDescLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedUnderlyingSecurityDesc (365) field."
+  },
+  "365": {
+    "name": "EncodedUnderlyingSecurityDesc",
+    "desc": "Encoded (non-ASCII characters) representation of the UnderlyingSecurityDesc (307) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the UnderlyingSecurityDesc (307) field."
+  },
+  "366": {
+    "name": "AllocPrice",
+    "desc": "Executed price for an AllocAccount (79) entry used when using \"executed price\" vs. \"average price\" allocations (e.g. Japan)."
+  },
+  "367": {
+    "name": "QuoteSetValidUntilTime",
+    "desc": "Indicates expiration time of this particular QuoteSet (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\")"
+  },
+  "368": {
+    "name": "QuoteEntryRejectReason",
+    "desc": "Reason Quote Entry was rejected:"
+  },
+  "369": {
+    "name": "LastMsgSeqNumProcessed",
+    "desc": "The last MsgSeqNum (34) value received by the FIX engine and processed by downstream application, such as trading engine or order routing system. Can be specified on every message sent. Useful for detecting a backlog with a counterparty."
+  },
+  "371": {
+    "name": "RefTagID",
+    "desc": "The tag number of the FIX field being referenced."
+  },
+  "372": {
+    "name": "RefMsgType",
+    "desc": "The MsgType (35) of the FIX message being referenced."
+  },
+  "373": {
+    "name": "SessionRejectReason",
+    "desc": "Code to identify reason for a session-level Reject (3) message."
+  },
+  "374": {
+    "name": "BidRequestTransType",
+    "desc": "Identifies the Bid Request (k) message type."
+  },
+  "375": {
+    "name": "ContraBroker",
+    "desc": "Identifies contra broker. Standard NASD market-maker mnemonic is preferred."
+  },
+  "376": {
+    "name": "ComplianceID",
+    "desc": "ID used to represent this transaction for compliance purposes (e.g. OATS reporting)."
+  },
+  "377": {
+    "name": "SolicitedFlag",
+    "desc": "Indicates whether or not the order was solicited."
+  },
+  "378": {
+    "name": "ExecRestatementReason",
+    "desc": "Code to identify reason for an Execution Report (8) message sent with ExecType (150) =Restated or used when communicating an unsolicited cancel."
+  },
+  "379": {
+    "name": "BusinessRejectRefID",
+    "desc": "The value of the business-level \"ID\" field on the message being referenced."
+  },
+  "380": {
+    "name": "BusinessRejectReason",
+    "desc": "Code to identify reason for a Business Message Reject (j) message."
+  },
+  "381": {
+    "name": "GrossTradeAmt",
+    "desc": "Total amount traded (e.g. CumQty (14) * AvgPx (6) ) expressed in units of currency."
+  },
+  "382": {
+    "name": "NoContraBrokers",
+    "desc": "The number of ContraBroker (375) entries."
+  },
+  "383": {
+    "name": "MaxMessageSize",
+    "desc": "Maximum number of bytes supported for a single message."
+  },
+  "384": {
+    "name": "NoMsgTypes",
+    "desc": "Number of MsgType (35) in repeating group."
+  },
+  "385": {
+    "name": "MsgDirection",
+    "desc": "Specifies the direction of the messsage."
+  },
+  "386": {
+    "name": "NoTradingSessions",
+    "desc": "Number of TradingSessionID (336) in repeating group."
+  },
+  "387": {
+    "name": "TotalVolumeTraded",
+    "desc": "Total volume (quantity) traded."
+  },
+  "388": {
+    "name": "DiscretionInst",
+    "desc": "Code to identify the price a DiscretionOffsetValue (389) is related to and should be mathematically added to."
+  },
+  "389": {
+    "name": "DiscretionOffsetValue",
+    "desc": "Amount (signed) added to the \"related to\" price specified via DiscretionInst (388) , in the context of DiscretionOffsetType (842)"
+  },
+  "390": {
+    "name": "BidID",
+    "desc": "Unique identifier for Bid Response (l) as assigned by sell-side (broker, exchange, ECN). Uniqueness must be guaranteed within a single trading day."
+  },
+  "391": {
+    "name": "ClientBidID",
+    "desc": "Unique identifier for a Bid Request (k) as assigned by institution. Uniqueness must be guaranteed within a single trading day."
+  },
+  "392": {
+    "name": "ListName",
+    "desc": "Descriptive name for list order."
+  },
+  "393": {
+    "name": "TotNoRelatedSym",
+    "desc": "Total number of securities."
+  },
+  "394": {
+    "name": "BidType",
+    "desc": "Code to identify the type of Bid Request (k) ."
+  },
+  "395": {
+    "name": "NumTickets",
+    "desc": "Total number of tickets."
+  },
+  "396": {
+    "name": "SideValue1",
+    "desc": "Amounts in currency"
+  },
+  "397": {
+    "name": "SideValue2",
+    "desc": "Amounts in currency"
+  },
+  "398": {
+    "name": "NoBidDescriptors",
+    "desc": "Number of BidDescriptor (400) entries."
+  },
+  "399": {
+    "name": "BidDescriptorType",
+    "desc": "Code to identify the type of BidDescriptor (400) ."
+  },
+  "400": {
+    "name": "BidDescriptor",
+    "desc": "BidDescriptor (400) value. Usage depends upon BidDescriptorType (399) ."
+  },
+  "401": {
+    "name": "SideValueInd",
+    "desc": "Code to identify which \"SideValue\" the value refers to. SideValue1 and SideValue2 are used as opposed to Buy or Sell so that the basket can be quoted either way as Buy or Sell."
+  },
+  "402": {
+    "name": "LiquidityPctLow",
+    "desc": "Liquidity indicator or lower limit if TotNoRelatedSym (393) > 1. Represented as a percentage."
+  },
+  "403": {
+    "name": "LiquidityPctHigh",
+    "desc": "Upper liquidity indicator if TotNoRelatedSym (393) > 1. Represented as a percentage."
+  },
+  "404": {
+    "name": "LiquidityValue",
+    "desc": "Value between LiquidityPctLow (402) and LiquidityPctHigh (403) in Currency (15)"
+  },
+  "405": {
+    "name": "EFPTrackingError",
+    "desc": "Eg Used in EFP trades 12% (EFP - Exchange for Physical ). Represented as a percentage."
+  },
+  "406": {
+    "name": "FairValue",
+    "desc": "Used in EFP trades"
+  },
+  "407": {
+    "name": "OutsideIndexPct",
+    "desc": "Used in EFP trades. Represented as a percentage."
+  },
+  "408": {
+    "name": "ValueOfFutures",
+    "desc": "Used in EFP trades"
+  },
+  "409": {
+    "name": "LiquidityIndType",
+    "desc": "Code to identify the type of liquidity indicator."
+  },
+  "410": {
+    "name": "WtAverageLiquidity",
+    "desc": "Overall weighted average liquidity expressed as a % of average daily volume. Represented as a percentage."
+  },
+  "411": {
+    "name": "ExchangeForPhysical",
+    "desc": "Indicates whether or not to exchange for phsyical."
+  },
+  "412": {
+    "name": "OutMainCntryUIndex",
+    "desc": "Value of stocks in Currency (15)"
+  },
+  "413": {
+    "name": "CrossPercent",
+    "desc": "Percentage of program that crosses in Currency (15) . Represented as a percentage."
+  },
+  "414": {
+    "name": "ProgRptReqs",
+    "desc": "Code to identify the desired frequency of progress reports."
+  },
+  "415": {
+    "name": "ProgPeriodInterval",
+    "desc": "Time in minutes between each List Status (N) report sent by SellSide. Zero means don't send status."
+  },
+  "416": {
+    "name": "IncTaxInd",
+    "desc": "Code to represent whether value is net (inclusive of tax) or gross."
+  },
+  "417": {
+    "name": "NumBidders",
+    "desc": "Indicates the total number of bidders on the list"
+  },
+  "418": {
+    "name": "BidTradeType",
+    "desc": "Code to represent the type of trade."
+  },
+  "419": {
+    "name": "BasisPxType",
+    "desc": "Code to represent the basis price type."
+  },
+  "420": {
+    "name": "NoBidComponents",
+    "desc": "Indicates the number of list entries."
+  },
+  "421": {
+    "name": "Country",
+    "desc": "ISO Country Code in field"
+  },
+  "422": {
+    "name": "TotNoStrikes",
+    "desc": "Total number of strike price entries across all messages. Should be the sum of all NoStrikes (428) in each message that has repeating strike price entries related to the same ListID (66) . Used to support fragmentation."
+  },
+  "423": {
+    "name": "PriceType",
+    "desc": "Code to represent the price type."
+  },
+  "424": {
+    "name": "DayOrderQty",
+    "desc": "For GT orders, the OrderQty (38) less all shares (adjusted for stock splits) that traded on previous days. DayOrderQty (424) = OrderQty (38) - ( CumQty (14) - DayCumQty (425) )"
+  },
+  "425": {
+    "name": "DayCumQty",
+    "desc": "Quantity on a GT order that has traded today."
+  },
+  "426": {
+    "name": "DayAvgPx",
+    "desc": "The average price for quantity on a GT order that has traded today."
+  },
+  "427": {
+    "name": "GTBookingInst",
+    "desc": "Code to identify whether to book out executions on a part-filled GT order on the day of execution or to accumulate."
+  },
+  "428": {
+    "name": "NoStrikes",
+    "desc": "Number of list strike price entries."
+  },
+  "429": {
+    "name": "ListStatusType",
+    "desc": "Code to represent the status type."
+  },
+  "430": {
+    "name": "NetGrossInd",
+    "desc": "Code to represent whether value is net (inclusive of tax) or gross."
+  },
+  "431": {
+    "name": "ListOrderStatus",
+    "desc": "Code to represent the status of a list order."
+  },
+  "432": {
+    "name": "ExpireDate",
+    "desc": "Date of order expiration (last day the order can trade), always expressed in terms of the local market date. The time at which the order expires is determined by the local market's business practices"
+  },
+  "433": {
+    "name": "ListExecInstType",
+    "desc": "Identifies the type of ListExecInst (69) ."
+  },
+  "434": {
+    "name": "CxlRejResponseTo",
+    "desc": "Identifies the type of request that a Order Cancel Reject (9) is in response to."
+  },
+  "435": {
+    "name": "UnderlyingCouponRate",
+    "desc": "Underlying security's CouponRate. See CouponRate (223) field for description"
+  },
+  "436": {
+    "name": "UnderlyingContractMultiplier",
+    "desc": "Underlying security's ContractMultiplier. See ContractMultiplier (231) field for description"
+  },
+  "437": {
+    "name": "ContraTradeQty",
+    "desc": "Quantity traded with the ContraBroker (375) ."
+  },
+  "438": {
+    "name": "ContraTradeTime",
+    "desc": "Identifes the time of the trade with the ContraBroker (375) . (always expressed in UTC (Universal Time Coordinated, also known as \"GMT\")"
+  },
+  "441": {
+    "name": "LiquidityNumSecurities",
+    "desc": "Number of Securites between LiquidityPctLow (402) and LiquidityPctHigh (403) in Currency (15) ."
+  },
+  "442": {
+    "name": "MultiLegReportingType",
+    "desc": "Used to indicate what an Execution Report (8) represents (e.g. used with multi-leg securiteis, such as option strategies, spreads, etc.)."
+  },
+  "443": {
+    "name": "StrikeTime",
+    "desc": "The time at which current market prices are used to determine the value of a basket."
+  },
+  "444": {
+    "name": "ListStatusText",
+    "desc": "Free format text string related to List Status (N) ."
+  },
+  "445": {
+    "name": "EncodedListStatusTextLen",
+    "desc": "Byte length of encoded (non-ASCII characters) EncodedListStatusText (446) field."
+  },
+  "446": {
+    "name": "EncodedListStatusText",
+    "desc": "Encoded (non-ASCII characters) representation of the ListStatusText (444) field in the encoded format specified via the MessageEncoding (347) field. If used, the ASCII (English) representation should also be specified in the ListStatusText (444) field."
+  },
+  "447": {
+    "name": "PartyIDSource",
+    "desc": "Identifies class or source of the PartyID (448) value. Required if PartyID (448) is specified. Note: applicable values depend upon PartyRole (452) specified."
+  },
+  "448": {
+    "name": "PartyID",
+    "desc": "Party identifier/code. See PartyIDSource (447) and PartyRole (452) ."
+  },
+  "451": {
+    "name": "NetChgPrevDay",
+    "desc": "Net change from previous day's closing price vs. last traded price."
+  },
+  "452": {
+    "name": "PartyRole",
+    "desc": "Identifies the type or role of the PartyID (448) specified."
+  },
+  "453": {
+    "name": "NoPartyIDs",
+    "desc": "Number of PartyID (448) , PartyIDSource (447) , and PartyRole (452) entries"
+  },
+  "454": {
+    "name": "NoSecurityAltID",
+    "desc": "Number of SecurityAltID (455) entries."
+  },
+  "455": {
+    "name": "SecurityAltID",
+    "desc": "Alternate Security identifier value for this security of SecurityAltIDSource (456) type (e.g. CUSIP, SEDOL, ISIN, etc). Requires SecurityAltIDSource (456) ."
+  },
+  "456": {
+    "name": "SecurityAltIDSource",
+    "desc": "Identifies class or source of the SecurityAltID (455) value. Required if SecurityAltID (455) is specified."
+  },
+  "457": {
+    "name": "NoUnderlyingSecurityAltID",
+    "desc": "Number of UnderlyingSecurityAltID (458) entries."
+  },
+  "458": {
+    "name": "UnderlyingSecurityAltID",
+    "desc": "Alternate Security identifier value for this underlying security of UnderlyingSecurityAltIDSource (459) type (e.g. CUSIP, SEDOL, ISIN, etc). Requires UnderlyingSecurityAltIDSource (459) ."
+  },
+  "459": {
+    "name": "UnderlyingSecurityAltIDSource",
+    "desc": "Identifies class or source of the UnderlyingSecurityAltID (458) value. Required if UnderlyingSecurityAltID (458) is specified."
+  },
+  "460": {
+    "name": "Product",
+    "desc": "Indicates the type of product the security is associated with. See also the CFICode (461) and SecurityType (167) fields."
+  },
+  "461": {
+    "name": "CFICode",
+    "desc": "Indicates the type of security using ISO 10962 standard, Classification of Financial Instruments (CFI code) values. ISO 10962 is maintained by ANNA (Association of National Numbering Agencies) acting as Registration Authority. See also the Product (460) and SecurityType (167) fields. It is recommended that CFICode (461) be used instead of SecurityType (167) for non-Fixed Income instruments."
+  },
+  "462": {
+    "name": "UnderlyingProduct",
+    "desc": "Underlying security's Product."
+  },
+  "463": {
+    "name": "UnderlyingCFICode",
+    "desc": "Underlying security's CFICode."
+  },
+  "464": {
+    "name": "TestMessageIndicator",
+    "desc": "Indicates whether or not this FIX Session is a \"test\" vs. \"production\" connection. Useful for preventing \"accidents\"."
+  },
+  "465": {
+    "name": "QuantityType",
+    "desc": "Designates the type of quantities (e.g. OrderQty (38) ) specified. Used for MBS and TIPS Fixed Income security types."
+  },
+  "466": {
+    "name": "BookingRefID",
+    "desc": "Common reference passed to a post-trade booking process (e.g. industry matching utility)."
+  },
+  "467": {
+    "name": "IndividualAllocID",
+    "desc": "Unique identifier for a specific NoAllocs (78) repeating group instance (e.g. for an AllocAccount (79) )."
+  },
+  "468": {
+    "name": "RoundingDirection",
+    "desc": "Specifies which direction to round For CIV - indicates whether or not the quantity of shares/units is to be rounded and in which direction where CashOrderQty (152) or (for CIV only) OrderPercent (516) are specified on an order."
+  },
+  "469": {
+    "name": "RoundingModulus",
+    "desc": "For CIV - a float value indicating the value to which rounding is required."
+  },
+  "470": {
+    "name": "CountryOfIssue",
+    "desc": "ISO Country code of instrument issue (e.g. the country portion typically used in ISIN). Can be used in conjunction with non-ISIN SecurityID (48) (e.g. CUSIP for Municipal Bonds without ISIN) to provide uniqueness."
+  },
+  "471": {
+    "name": "StateOrProvinceOfIssue",
+    "desc": "A two-character state or province abbreviation."
+  },
+  "472": {
+    "name": "LocaleOfIssue",
+    "desc": "Identifies the locale. For Municipal Security Issuers other than state or province. Refer to http://www.atmos.albany.edu/cgi/stagrep-cgi"
+  },
+  "473": {
+    "name": "NoRegistDtls",
+    "desc": "The number of registration details on a Registration Instructions (o) message"
+  },
+  "474": {
+    "name": "MailingDtls",
+    "desc": "Set of Correspondence address details, possibly including phone, fax, etc."
+  },
+  "475": {
+    "name": "InvestorCountryOfResidence",
+    "desc": "The ISO 3166 Country code (2 character) identifying which country the beneficial investor is resident for tax purposes."
+  },
+  "476": {
+    "name": "PaymentRef",
+    "desc": "\"Settlement Payment Reference\" - A free format Payment reference to assist with reconciliation, e.g. a Client and/or Order ID number."
+  },
+  "477": {
+    "name": "DistribPaymentMethod",
+    "desc": "A code identifying the payment method for a (fractional) distribution."
+  },
+  "478": {
+    "name": "CashDistribCurr",
+    "desc": "Specifies currency to be use for Cash Distributions - see \" Appendix 6-A; Valid Currency Codes \"."
+  },
+  "479": {
+    "name": "CommCurrency",
+    "desc": "Specifies currency to be use for Commission (12) if the Commission currency is different from the Deal Currency - see Appendix 6-A: \"Valid Currency Codes\" of FIX Specification."
+  },
+  "480": {
+    "name": "CancellationRights",
+    "desc": "For CIV - A one character code identifying whether Cancellation rights/Cooling off period applies."
+  },
+  "481": {
+    "name": "MoneyLaunderingStatus",
+    "desc": "A one character code identifying Money laundering status."
+  },
+  "482": {
+    "name": "MailingInst",
+    "desc": "Free format text to specify mailing instruction requirements, e.g. \"no third party mailings\"."
+  },
+  "483": {
+    "name": "TransBkdTime",
+    "desc": "For CIV A date and time stamp to indicate the time a CIV order was booked by the fund manager."
+  },
+  "484": {
+    "name": "ExecPriceType",
+    "desc": "For CIV - Identifies how the execution price LastPx (31) was calculated from the fund unit/share price(s) calculated at the fund valuation point."
+  },
+  "485": {
+    "name": "ExecPriceAdjustment",
+    "desc": "For CIV the amount or percentage by which the fund unit/share price was adjusted, as indicated by ExecPriceType (484)"
+  },
+  "486": {
+    "name": "DateOfBirth",
+    "desc": "The date of birth applicable to the individual, e.g. required to open some types of tax-exempt account."
+  },
+  "487": {
+    "name": "TradeReportTransType",
+    "desc": "Identifies Trade Capture Report (AE) message transaction type"
+  },
+  "488": {
+    "name": "CardHolderName",
+    "desc": "The name of the payment card holder as specified on the card being used for payment."
+  },
+  "489": {
+    "name": "CardNumber",
+    "desc": "The number of the payment card as specified on the card being used for payment."
+  },
+  "490": {
+    "name": "CardExpDate",
+    "desc": "The expiry date of the payment card as specified on the card being used for payment."
+  },
+  "491": {
+    "name": "CardIssNum",
+    "desc": "The issue number of the payment card as specified on the card being used for payment. This is only applicable to certain types of card."
+  },
+  "492": {
+    "name": "PaymentMethod",
+    "desc": "A code identifying the Settlement payment method."
+  },
+  "493": {
+    "name": "RegistAcctType",
+    "desc": "For CIV - a fund manager-defined code identifying which of the fund manager's account types is required."
+  },
+  "494": {
+    "name": "Designation",
+    "desc": "Free format text defining the designation to be associated with a holding on the register. Used to identify assets of a specific underlying investor using a common registration, e.g. a broker's nominee or street name."
+  },
+  "495": {
+    "name": "TaxAdvantageType",
+    "desc": "For CIV - a code identifying the type of tax exempt account in which purchased shares/units are to be held."
+  },
+  "496": {
+    "name": "RegistRejReasonText",
+    "desc": "Text indicating reason(s) why a Registration Instructions (o) has been rejected."
+  },
+  "497": {
+    "name": "FundRenewWaiv",
+    "desc": "A one character code identifying whether the Fund based renewal commission is to be waived."
+  },
+  "498": {
+    "name": "CashDistribAgentName",
+    "desc": "Name of local agent bank if for cash distributions"
+  },
+  "499": {
+    "name": "CashDistribAgentCode",
+    "desc": "BIC (Bank Identification Code--Swift managed) code of agent bank for cash distributions"
+  },
+  "500": {
+    "name": "CashDistribAgentAcctNumber",
+    "desc": "Account number at agent bank for distributions."
+  },
+  "501": {
+    "name": "CashDistribPayRef",
+    "desc": "Free format Payment reference to assist with reconciliation of distributions."
+  },
+  "502": {
+    "name": "CashDistribAgentAcctName",
+    "desc": "Name of account at agent bank for distributions."
+  },
+  "503": {
+    "name": "CardStartDate",
+    "desc": "The start date of the card as specified on the card being used for payment."
+  },
+  "504": {
+    "name": "PaymentDate",
+    "desc": "The date written on a cheque or date payment should be submitted to the relevant clearing system."
+  },
+  "505": {
+    "name": "PaymentRemitterID",
+    "desc": "Identifies sender of a payment, e.g. the payment remitter or a customer reference number."
+  },
+  "506": {
+    "name": "RegistStatus",
+    "desc": "Registration status as returned by the broker or (for CIV) the fund manager"
+  },
+  "507": {
+    "name": "RegistRejReasonCode",
+    "desc": "Reason(s) why Registration Instructions (o) has been rejected."
+  },
+  "508": {
+    "name": "RegistRefID",
+    "desc": "Reference identifier for the RegistID (513) with Cancel and Replace RegistTransType (514) transaction types."
+  },
+  "509": {
+    "name": "RegistDtls",
+    "desc": "Set of Registration name and address details, possibly including phone, fax etc."
+  },
+  "510": {
+    "name": "NoDistribInsts",
+    "desc": "The number of Distribution Instructions on a Registration Instructions (o) message"
+  },
+  "511": {
+    "name": "RegistEmail",
+    "desc": "Email address relating to Registration name and address details"
+  },
+  "512": {
+    "name": "DistribPercentage",
+    "desc": "The amount of each distribution to go to this beneficiary, expressed as a percentage"
+  },
+  "513": {
+    "name": "RegistID",
+    "desc": "Unique identifier of the registration details as assigned by institution or intermediary."
+  },
+  "514": {
+    "name": "RegistTransType",
+    "desc": "Identifies Registration Instructions (o) transaction type"
+  },
+  "515": {
+    "name": "ExecValuationPoint",
+    "desc": "For CIV - a date and time stamp to indicate the fund valuation point with respect to which a order was priced by the fund manager."
+  },
+  "516": {
+    "name": "OrderPercent",
+    "desc": "For CIV specifies the approximate order quantity desired. For a CIV Sale it specifies percentage of investor's total holding to be sold. For a CIV switch/exchange it specifies percentage of investor's cash realised from sales to be re-invested. The executing broker, intermediary or fund manager is responsible for converting and calculating OrderQty (38) in shares/units for subsequent messages."
+  },
+  "517": {
+    "name": "OwnershipType",
+    "desc": "The relationship between Registration parties."
+  },
+  "518": {
+    "name": "NoContAmts",
+    "desc": "The number of Contract Amount details on an Execution Report (8) message"
+  },
+  "519": {
+    "name": "ContAmtType",
+    "desc": "Type of ContAmtValue (520) ."
+  },
+  "520": {
+    "name": "ContAmtValue",
+    "desc": "Value of Contract Amount, e.g. a financial amount or percentage as indicated by ContAmtType (519) ."
+  },
+  "521": {
+    "name": "ContAmtCurr",
+    "desc": "Specifies currency for the Contract amount if different from the Deal Currency - see \" Appendix 6-A; Valid Currency Codes \"."
+  },
+  "522": {
+    "name": "OwnerType",
+    "desc": "Identifies the type of owner."
+  },
+  "523": {
+    "name": "PartySubID",
+    "desc": "Sub-identifier (e.g. Clearing Account for PartyRole (452) =Clearing Firm, Locate ID # for PartyRole (452) =Locate/Lending Firm, etc). Not required when using PartyID (448) , PartyIDSource (447) , and PartyRole (452) ."
+  },
+  "524": {
+    "name": "NestedPartyID",
+    "desc": "PartyID (448) value within a nested repeating group."
+  },
+  "525": {
+    "name": "NestedPartyIDSource",
+    "desc": "PartyIDSource (447) value within a nested repeating group."
+  },
+  "526": {
+    "name": "SecondaryClOrdID",
+    "desc": "Assigned by the party which originates the order. Can be used to provide the ClOrdID (11) used by an exchange or executing system."
+  },
+  "527": {
+    "name": "SecondaryExecID",
+    "desc": "Assigned by the party which accepts the order. Can be used to provide the ExecID (17) used by an exchange or executing system."
+  },
+  "528": {
+    "name": "OrderCapacity",
+    "desc": "Designates the capacity of the firm placing the order."
+  },
+  "529": {
+    "name": "OrderRestrictions",
+    "desc": "Restrictions associated with an order. If more than one restriction is applicable to an order, this field can contain multiple instructions separated by space."
+  },
+  "530": {
+    "name": "MassCancelRequestType",
+    "desc": "Specifies scope of Order Mass Cancel Request (q) ."
+  },
+  "531": {
+    "name": "MassCancelResponse",
+    "desc": "Specifies the action taken by counterparty order handling system as a result of the Order Mass Cancel Request (q)"
+  },
+  "532": {
+    "name": "MassCancelRejectReason",
+    "desc": "Reason Order Mass Cancel Request (q) was rejected"
+  },
+  "533": {
+    "name": "TotalAffectedOrders",
+    "desc": "Total number of orders affected by Order Mass Cancel Request (q) ."
+  },
+  "534": {
+    "name": "NoAffectedOrders",
+    "desc": "Number of affected orders in the repeating group of order ids."
+  },
+  "535": {
+    "name": "AffectedOrderID",
+    "desc": "OrderID (37) of an order affected by a Order Mass Cancel Request (q) ."
+  },
+  "536": {
+    "name": "AffectedSecondaryOrderID",
+    "desc": "SecondaryOrderID (198) of an order affected by a Order Mass Cancel Request (q) ."
+  },
+  "537": {
+    "name": "QuoteType",
+    "desc": "Identifies the type of quote."
+  },
+  "538": {
+    "name": "NestedPartyRole",
+    "desc": "PartyRole (452) value within a nested repeating group."
+  },
+  "539": {
+    "name": "NoNestedPartyIDs",
+    "desc": "Number of NestedPartyID (524) , NestedPartyIDSource (525) , and NestedPartyRole (538) entries"
+  },
+  "540": {
+    "name": "TotalAccruedInterestAmt",
+    "desc": "Total Amount of Accrued Interest for convertible bonds and fixed income"
+  },
+  "541": {
+    "name": "MaturityDate",
+    "desc": "Date of maturity."
+  },
+  "542": {
+    "name": "UnderlyingMaturityDate",
+    "desc": "Underlying security's maturity date. See MaturityDate (541) field for description"
+  },
+  "543": {
+    "name": "InstrRegistry",
+    "desc": "The location at which records of ownership are maintained for this instrument, and at which ownership changes must be recorded."
+  },
+  "544": {
+    "name": "CashMargin",
+    "desc": "Identifies whether an order is a margin order or a non-margin order. This is primarily used when sending orders to Japanese exchanges to indicate sell margin or buy to cover. The same tag could be assigned also by buy-side to indicate the intent to sell or buy margin and the sell-side to accept or reject (base on some validation criteria) the margin request."
+  },
+  "545": {
+    "name": "NestedPartySubID",
+    "desc": "PartySubID (523) value within a nested repeating group. Same values as PartySubID (523)"
+  },
+  "546": {
+    "name": "Scope",
+    "desc": "Defines the scope of a data element."
+  },
+  "547": {
+    "name": "MDImplicitDelete",
+    "desc": "Defines how a server handles distribution of a truncated book. Defaults to broker option."
+  },
+  "548": {
+    "name": "CrossID",
+    "desc": "Identifier for a cross order. Must be unique during a given trading day. Recommend that firms use the order date as part of the CrossID (548) for Good Till Cancel (GTC) orders."
+  },
+  "549": {
+    "name": "CrossType",
+    "desc": "Type of cross being submitted to a market"
+  },
+  "550": {
+    "name": "CrossPrioritization",
+    "desc": "Indicates if one side or the other of a cross order should be prioritized."
+  },
+  "551": {
+    "name": "OrigCrossID",
+    "desc": "CrossID (548) of the previous cross order (NOT the initial cross order of the day) as assigned by the institution, used to identify the previous cross order in Cross Order Cancel Request (u) and Cross Order Cancel/Replace Request (t) ."
+  },
+  "552": {
+    "name": "NoSides",
+    "desc": "Number of Side (54) repeating group instances."
+  },
+  "553": {
+    "name": "Username",
+    "desc": "Userid or username."
+  },
+  "554": {
+    "name": "Password",
+    "desc": "Password or passphrase."
+  },
+  "555": {
+    "name": "NoLegs",
+    "desc": "Number of InstrumentLeg repeating group instances."
+  },
+  "556": {
+    "name": "LegCurrency",
+    "desc": "Currency associated with a particular Leg's quantity"
+  },
+  "557": {
+    "name": "TotNoSecurityTypes",
+    "desc": "Indicates total number of security types in the event that multiple Security Types (w) messages are used to return results"
+  },
+  "558": {
+    "name": "NoSecurityTypes",
+    "desc": "Number of Security Type repeating group instances."
+  },
+  "559": {
+    "name": "SecurityListRequestType",
+    "desc": "Identifies the type/criteria of Security List Request (x)"
+  },
+  "560": {
+    "name": "SecurityRequestResult",
+    "desc": "The results returned to a Security Type Request (v) message"
+  },
+  "561": {
+    "name": "RoundLot",
+    "desc": "The trading lot size of a security"
+  },
+  "562": {
+    "name": "MinTradeVol",
+    "desc": "The minimum trading volume for a security"
+  },
+  "563": {
+    "name": "MultiLegRptTypeReq",
+    "desc": "Indicates the method of execution reporting requested by issuer of the order."
+  },
+  "564": {
+    "name": "LegPositionEffect",
+    "desc": "PositionEffect for leg of a multileg"
+  },
+  "565": {
+    "name": "LegCoveredOrUncovered",
+    "desc": "CoveredOrUncovered for leg of a multileg"
+  },
+  "566": {
+    "name": "LegPrice",
+    "desc": "Price for leg of a multileg"
+  },
+  "567": {
+    "name": "TradSesStatusRejReason",
+    "desc": "Indicates the reason a Trading Session Status Request (g) was rejected."
+  },
+  "568": {
+    "name": "TradeRequestID",
+    "desc": "Trade Capture Report Request (AD) ID"
+  },
+  "569": {
+    "name": "TradeRequestType",
+    "desc": "Type of Trade Capture Report (AE) ."
+  },
+  "570": {
+    "name": "PreviouslyReported",
+    "desc": "Indicates if the trade capture report was previously reported to the counterparty"
+  },
+  "571": {
+    "name": "TradeReportID",
+    "desc": "Unique identifier of Trade Capture Report (AE)"
+  },
+  "572": {
+    "name": "TradeReportRefID",
+    "desc": "Reference identifier used with CANCEL and REPLACE transaction types."
+  },
+  "573": {
+    "name": "MatchStatus",
+    "desc": "The status of this trade with respect to matching or comparison."
+  },
+  "574": {
+    "name": "MatchType",
+    "desc": "The point in the matching process at which this trade was matched."
+  },
+  "575": {
+    "name": "OddLot",
+    "desc": "This trade is to be treated as an odd lot. If this field is not specified, the default will be \"N\""
+  },
+  "576": {
+    "name": "NoClearingInstructions",
+    "desc": "Number of clearing instructions"
+  },
+  "577": {
+    "name": "ClearingInstruction",
+    "desc": "Eligibility of this trade for clearing and central counterparty processing."
+  },
+  "578": {
+    "name": "TradeInputSource",
+    "desc": "Type of input device or system from which the trade was entered."
+  },
+  "579": {
+    "name": "TradeInputDevice",
+    "desc": "Specific device number, terminal number or station where trade was entered"
+  },
+  "580": {
+    "name": "NoDates",
+    "desc": "Number of Date fields provided in date range"
+  },
+  "581": {
+    "name": "AccountType",
+    "desc": "Type of account associated with an order"
+  },
+  "582": {
+    "name": "CustOrderCapacity",
+    "desc": "Capacity of customer placing the order."
+  },
+  "583": {
+    "name": "ClOrdLinkID",
+    "desc": "Permits order originators to tie together groups of orders in which trades resulting from orders are associated for a specific purpose, for example the calculation of average execution price for a customer or to associate lists submitted to a broker as waves of a larger program trade."
+  },
+  "584": {
+    "name": "MassStatusReqID",
+    "desc": "Value assigned by issuer of Order Mass Status Request (AF) to uniquely identify the request"
+  },
+  "585": {
+    "name": "MassStatusReqType",
+    "desc": "Order Mass Status Request (AF) Type"
+  },
+  "586": {
+    "name": "OrigOrdModTime",
+    "desc": "The most recent (or current) modification TransactTime (60) reported on an Execution Report (8) for the order."
+  },
+  "587": {
+    "name": "LegSettlType",
+    "desc": "Refer to values for SettlType (63)"
+  },
+  "588": {
+    "name": "LegSettlDate",
+    "desc": "Refer to description for SettlDate (64)"
+  },
+  "589": {
+    "name": "DayBookingInst",
+    "desc": "Indicates whether or not automatic booking can occur."
+  },
+  "590": {
+    "name": "BookingUnit",
+    "desc": "Indicates what constitutes a bookable unit."
+  },
+  "591": {
+    "name": "PreallocMethod",
+    "desc": "Indicates the method of preallocation."
+  },
+  "592": {
+    "name": "UnderlyingCountryOfIssue",
+    "desc": "Underlying security's CountryOfIssue. See CountryOfIssue (470) field for description"
+  },
+  "593": {
+    "name": "UnderlyingStateOrProvinceOfIssue",
+    "desc": "Underlying security's StateOrProvinceOfIssue. See StateOrProvinceOfIssue (471) field for description"
+  },
+  "594": {
+    "name": "UnderlyingLocaleOfIssue",
+    "desc": "Underlying security's LocaleOfIssue. See LocaleOfIssue (472) field for description"
+  },
+  "595": {
+    "name": "UnderlyingInstrRegistry",
+    "desc": "Underlying security's InstrRegistry. See InstrRegistry (543) field for description"
+  },
+  "596": {
+    "name": "LegCountryOfIssue",
+    "desc": "Multileg instrument's individual leg security's CountryOfIssue. See CountryOfIssue (470) field for description"
+  },
+  "597": {
+    "name": "LegStateOrProvinceOfIssue",
+    "desc": "Multileg instrument's individual leg security's StateOrProvinceOfIssue. See StateOrProvinceOfIssue (471) field for description"
+  },
+  "598": {
+    "name": "LegLocaleOfIssue",
+    "desc": "Multileg instrument's individual leg security's LocaleOfIssue. See LocaleOfIssue (472) field for description"
+  },
+  "599": {
+    "name": "LegInstrRegistry",
+    "desc": "Multileg instrument's individual leg security's InstrRegistry. See InstrRegistry (543) field for description"
+  },
+  "600": {
+    "name": "LegSymbol",
+    "desc": "Multileg instrument's individual security's Symbol. See Symbol (55) field for description"
+  },
+  "601": {
+    "name": "LegSymbolSfx",
+    "desc": "Multileg instrument's individual security's SymbolSfx. See SymbolSfx (65) field for description"
+  },
+  "602": {
+    "name": "LegSecurityID",
+    "desc": "Multileg instrument's individual security's SecurityID. See SecurityID (48) field for description"
+  },
+  "603": {
+    "name": "LegSecurityIDSource",
+    "desc": "Multileg instrument's individual security's SecurityIDSource. See SecurityIDSource (22) field for description"
+  },
+  "604": {
+    "name": "NoLegSecurityAltID",
+    "desc": "Multileg instrument's individual security's NoSecurityAltID. See NoSecurityAltID (454) field for description"
+  },
+  "605": {
+    "name": "LegSecurityAltID",
+    "desc": "Multileg instrument's individual security's SecurityAltID. See SecurityAltID (455) field for description"
+  },
+  "606": {
+    "name": "LegSecurityAltIDSource",
+    "desc": "Multileg instrument's individual security's SecurityAltIDSource. See SecurityAltIDSource (456) field for description"
+  },
+  "607": {
+    "name": "LegProduct",
+    "desc": "Multileg instrument's individual security's Product. See Product (460) field for description"
+  },
+  "608": {
+    "name": "LegCFICode",
+    "desc": "Multileg instrument's individual security's CFICode. See CFICode (461) field for description"
+  },
+  "609": {
+    "name": "LegSecurityType",
+    "desc": "Multileg instrument's individual security's SecurityType. See SecurityType (167) field for description"
+  },
+  "610": {
+    "name": "LegMaturityMonthYear",
+    "desc": "Multileg instrument's individual security's MaturityMonthYear. See MaturityMonthYear (200) field for description"
+  },
+  "611": {
+    "name": "LegMaturityDate",
+    "desc": "Multileg instrument's individual security's MaturityDate. See MaturityDate (541) field for description"
+  },
+  "612": {
+    "name": "LegStrikePrice",
+    "desc": "Multileg instrument's individual security's StrikePrice. See StrikePrice (202) field for description"
+  },
+  "613": {
+    "name": "LegOptAttribute",
+    "desc": "Multileg instrument's individual security's OptAttribute. See OptAttribute (206) field for description"
+  },
+  "614": {
+    "name": "LegContractMultiplier",
+    "desc": "Multileg instrument's individual security's ContractMultiplier. See ContractMultiplier (231) field for description"
+  },
+  "615": {
+    "name": "LegCouponRate",
+    "desc": "Multileg instrument's individual security's CouponRate. See CouponRate (223) field for description"
+  },
+  "616": {
+    "name": "LegSecurityExchange",
+    "desc": "Multileg instrument's individual security's SecurityExchange. See SecurityExchange (207) field for description"
+  },
+  "617": {
+    "name": "LegIssuer",
+    "desc": "Multileg instrument's individual security's Issuer. See Issuer (106) field for description"
+  },
+  "618": {
+    "name": "EncodedLegIssuerLen",
+    "desc": "Multileg instrument's individual security's EncodedIssuerLen. See EncodedIssuerLen (348) field for description"
+  },
+  "619": {
+    "name": "EncodedLegIssuer",
+    "desc": "Multileg instrument's individual security's EncodedIssuer. See EncodedIssuer (349) field for description"
+  },
+  "620": {
+    "name": "LegSecurityDesc",
+    "desc": "Multileg instrument's individual security's SecurityDesc. See SecurityDesc (107) field for description"
+  },
+  "621": {
+    "name": "EncodedLegSecurityDescLen",
+    "desc": "Multileg instrument's individual security's EncodedSecurityDescLen. See EncodedSecurityDescLen (350) field for description"
+  },
+  "622": {
+    "name": "EncodedLegSecurityDesc",
+    "desc": "Multileg instrument's individual security's EncodedSecurityDesc. See EncodedSecurityDesc (351) field for description"
+  },
+  "623": {
+    "name": "LegRatioQty",
+    "desc": "The ratio of quantity for this individual leg relative to the entire multileg security."
+  },
+  "624": {
+    "name": "LegSide",
+    "desc": "The side of this individual leg (multileg security). See Side (54) field for description and values"
+  },
+  "625": {
+    "name": "TradingSessionSubID",
+    "desc": "Optional market assigned sub identifier for a trading session. Usage is determined by market or counterparties."
+  },
+  "626": {
+    "name": "AllocType",
+    "desc": "Describes the specific type or purpose of an Allocation Instruction (J) message (i.e. \"Buyside Calculated\")"
+  },
+  "627": {
+    "name": "NoHops",
+    "desc": "Number of HopCompID (628) entries in repeating group."
+  },
+  "628": {
+    "name": "HopCompID",
+    "desc": "Assigned value used to identify the third party firm which delivered a specific message either from the firm which originated the message or from another third party (if multiple \"hops\" are performed). It is recommended that this value be the SenderCompID (49) of the third party."
+  },
+  "629": {
+    "name": "HopSendingTime",
+    "desc": "Time that HopCompID (628) sent the message. It is recommended that this value be the SendingTime (52) of the message sent by the third party."
+  },
+  "630": {
+    "name": "HopRefID",
+    "desc": "Reference identifier assigned by HopCompID (628) associated with the message sent. It is recommended that this value be the MsgSeqNum (34) of the message sent by the third party."
+  },
+  "631": {
+    "name": "MidPx",
+    "desc": "Mid price/rate"
+  },
+  "632": {
+    "name": "BidYield",
+    "desc": "Bid yield"
+  },
+  "633": {
+    "name": "MidYield",
+    "desc": "Mid yield"
+  },
+  "634": {
+    "name": "OfferYield",
+    "desc": "Offer yield"
+  },
+  "635": {
+    "name": "ClearingFeeIndicator",
+    "desc": "Indicates type of fee being assessed of the customer for trade executions at an exchange. Applicable for futures markets only at this time."
+  },
+  "636": {
+    "name": "WorkingIndicator",
+    "desc": "Indicates if the order is currently being worked. Applicable only for OrdStatus (39) = \"New\". For open outcry markets this indicates that the order is being worked in the crowd. For electronic markets it indicates that the order has transitioned from a contingent order to a market order."
+  },
+  "637": {
+    "name": "LegLastPx",
+    "desc": "Execution price assigned to a leg of a multileg instrument. See LastPx (31) field for description and values"
+  },
+  "638": {
+    "name": "PriorityIndicator",
+    "desc": "Indicates if a Cancel/Replace has caused an order to lose book priority."
+  },
+  "639": {
+    "name": "PriceImprovement",
+    "desc": "Amount of price improvement."
+  },
+  "640": {
+    "name": "Price2",
+    "desc": "Price of the future part of a F/X swap order."
+  },
+  "641": {
+    "name": "LastForwardPoints2",
+    "desc": "F/X forward points of the future part of a F/X swap order added to LastSpotRate (194) . May be a negative value."
+  },
+  "642": {
+    "name": "BidForwardPoints2",
+    "desc": "Bid F/X forward points of the future portion of a F/X swap quote added to spot rate. May be a negative value."
+  },
+  "643": {
+    "name": "OfferForwardPoints2",
+    "desc": "Offer F/X forward points of the future portion of a F/X swap quote added to spot rate. May be a negative value."
+  },
+  "644": {
+    "name": "RFQReqID",
+    "desc": "RFQ Request ID - used to identify an RFQ Request (AH) ."
+  },
+  "645": {
+    "name": "MktBidPx",
+    "desc": "Used to indicate the best bid in a market"
+  },
+  "646": {
+    "name": "MktOfferPx",
+    "desc": "Used to indicate the best offer in a market"
+  },
+  "647": {
+    "name": "MinBidSize",
+    "desc": "Used to indicate a minimum quantity for a bid. If this field is used the BidSize (134) field is interpreted as the maximum bid size"
+  },
+  "648": {
+    "name": "MinOfferSize",
+    "desc": "Used to indicate a minimum quantity for an offer. If this field is used the OfferSize (135) field is interpreted as the maximum offer size."
+  },
+  "649": {
+    "name": "QuoteStatusReqID",
+    "desc": "Unique identifier for Quote Status Request (a) ."
+  },
+  "650": {
+    "name": "LegalConfirm",
+    "desc": "Indicates that this message is to serve as the final and legal confirmation."
+  },
+  "651": {
+    "name": "UnderlyingLastPx",
+    "desc": "The calculated or traded price for the underlying instrument that corresponds to a derivative. Used for transactions that include the cash instrument and the derivative."
+  },
+  "652": {
+    "name": "UnderlyingLastQty",
+    "desc": "The calculated or traded quantity for the underlying instrument that corresponds to a derivative. Used for transactions that include the cash instrument and the derivative."
+  },
+  "654": {
+    "name": "LegRefID",
+    "desc": "Unique indicator for a specific leg."
+  },
+  "655": {
+    "name": "ContraLegRefID",
+    "desc": "Unique indicator for a specific leg for the ContraBroker (375) ."
+  },
+  "656": {
+    "name": "SettlCurrBidFxRate",
+    "desc": "Foreign exchange rate used to compute the bid SettlCurrAmt (119) from Currency (15) to SettlCurrency (120)"
+  },
+  "657": {
+    "name": "SettlCurrOfferFxRate",
+    "desc": "Foreign exchange rate used to compute the offer SettlCurrAmt (119) from Currency (15) to SettlCurrency (120)"
+  },
+  "658": {
+    "name": "QuoteRequestRejectReason",
+    "desc": "Reason Quote was rejected."
+  },
+  "659": {
+    "name": "SideComplianceID",
+    "desc": "ID within repeating group of sides which is used to represent this transaction for compliance purposes (e.g. OATS reporting)."
+  },
+  "660": {
+    "name": "AcctIDSource",
+    "desc": "Used to identify the source of the Account (1) code. This is especially useful if the account is a new account that the Respondent may not have setup yet in their system."
+  },
+  "661": {
+    "name": "AllocAcctIDSource",
+    "desc": "Used to identify the source of the AllocAccount code."
+  },
+  "662": {
+    "name": "BenchmarkPrice",
+    "desc": "Specifies the price of the benchmark."
+  },
+  "663": {
+    "name": "BenchmarkPriceType",
+    "desc": "Identifies type of BenchmarkPrice."
+  },
+  "664": {
+    "name": "ConfirmID",
+    "desc": "Message reference for Confirmation (AK)"
+  },
+  "665": {
+    "name": "ConfirmStatus",
+    "desc": "Identifies the status of the Confirmation (AK) ."
+  },
+  "666": {
+    "name": "ConfirmTransType",
+    "desc": "Identifies the Confirmation (AK) transaction type."
+  },
+  "667": {
+    "name": "ContractSettlMonth",
+    "desc": "Specifies when the contract (i.e. MBS/TBA) will settle."
+  },
+  "668": {
+    "name": "DeliveryForm",
+    "desc": "Identifies the form of delivery."
+  },
+  "669": {
+    "name": "LastParPx",
+    "desc": "Last price expressed in percent-of-par. Conditionally required for Fixed Income trades when LastPx (31) is expressed in Yield, Spread, Discount or any other type."
+  },
+  "670": {
+    "name": "NoLegAllocs",
+    "desc": "Number of Allocations for the leg"
+  },
+  "671": {
+    "name": "LegAllocAccount",
+    "desc": "Allocation Account for the leg"
+  },
+  "672": {
+    "name": "LegIndividualAllocID",
+    "desc": "Reference for the individual allocation ticket"
+  },
+  "673": {
+    "name": "LegAllocQty",
+    "desc": "Leg allocation quantity."
+  },
+  "674": {
+    "name": "LegAllocAcctIDSource",
+    "desc": "The source of the LegAllocAccount"
+  },
+  "675": {
+    "name": "LegSettlCurrency",
+    "desc": "Identifies settlement currency for the Leg."
+  },
+  "676": {
+    "name": "LegBenchmarkCurveCurrency",
+    "desc": "LegBenchmarkPrice currency"
+  },
+  "677": {
+    "name": "LegBenchmarkCurveName",
+    "desc": "Name of the Leg Benchmark Curve."
+  },
+  "678": {
+    "name": "LegBenchmarkCurvePoint",
+    "desc": "Identifies the point on the Leg Benchmark Curve."
+  },
+  "679": {
+    "name": "LegBenchmarkPrice",
+    "desc": "Used to identify the price of the benchmark security."
+  },
+  "680": {
+    "name": "LegBenchmarkPriceType",
+    "desc": "The price type of the LegBenchmarkPrice."
+  },
+  "681": {
+    "name": "LegBidPx",
+    "desc": "Bid price of this leg."
+  },
+  "682": {
+    "name": "LegIOIQty",
+    "desc": "Leg-specific IOI quantity."
+  },
+  "683": {
+    "name": "NoLegStipulations",
+    "desc": "Number of leg stipulation entries."
+  },
+  "684": {
+    "name": "LegOfferPx",
+    "desc": "Offer price of this leg."
+  },
+  "685": {
+    "name": "LegOrderQty",
+    "desc": "Quantity ordered of this leg."
+  },
+  "686": {
+    "name": "LegPriceType",
+    "desc": "The price type of the LegBidPx (681) and/or LegOfferPx (684) ."
+  },
+  "687": {
+    "name": "LegQty",
+    "desc": "Quantity of this leg, e.g. in Quote dialog."
+  },
+  "688": {
+    "name": "LegStipulationType",
+    "desc": "For Fixed Income, type of Stipulation for this leg."
+  },
+  "689": {
+    "name": "LegStipulationValue",
+    "desc": "For Fixed Income, value of stipulation."
+  },
+  "690": {
+    "name": "LegSwapType",
+    "desc": "For Fixed Income, used instead of LegQty (687) or LegOrderQty (685) to requests the respondent to calculate the quantity based on the quantity on the opposite side of the swap."
+  },
+  "691": {
+    "name": "Pool",
+    "desc": "For Fixed Income, identifies MBS / ABS pool."
+  },
+  "692": {
+    "name": "QuotePriceType",
+    "desc": "Code to represent price type requested in Quote."
+  },
+  "693": {
+    "name": "QuoteRespID",
+    "desc": "Message reference for Quote Response (AJ) ."
+  },
+  "694": {
+    "name": "QuoteRespType",
+    "desc": "Identifies the type of Quote Response (AJ) ."
+  },
+  "695": {
+    "name": "QuoteQualifier",
+    "desc": "Code to qualify Quote use"
+  },
+  "696": {
+    "name": "YieldRedemptionDate",
+    "desc": "Date to which the yield has been calculated (i.e. maturity, par call or current call, pre-refunded date)."
+  },
+  "697": {
+    "name": "RedemptionPrice",
+    "desc": "Price to which the yield has been calculated."
+  },
+  "698": {
+    "name": "RedemptionPriceType",
+    "desc": "The price type of the RedemptionPrice (697)"
+  },
+  "699": {
+    "name": "BenchmarkSecurityID",
+    "desc": "The identifier of the benchmark security, e.g. Treasury against Corporate bond."
+  },
+  "700": {
+    "name": "ReversalIndicator",
+    "desc": "Indicates a trade that reverses a previous trade."
+  },
+  "701": {
+    "name": "YieldCalcDate",
+    "desc": "Include as needed to clarify yield irregularities associated with date, e.g. when it falls on a non-business day."
+  },
+  "702": {
+    "name": "NoPositions",
+    "desc": "Number of position entries."
+  },
+  "703": {
+    "name": "PosType",
+    "desc": "Used to identify the type of quantity that is being returned."
+  },
+  "704": {
+    "name": "LongQty",
+    "desc": "Long Quantity"
+  },
+  "705": {
+    "name": "ShortQty",
+    "desc": "Short Quantity"
+  },
+  "706": {
+    "name": "PosQtyStatus",
+    "desc": "Status of this position."
+  },
+  "707": {
+    "name": "PosAmtType",
+    "desc": "Type of Position amount."
+  },
+  "708": {
+    "name": "PosAmt",
+    "desc": "Position amount."
+  },
+  "709": {
+    "name": "PosTransType",
+    "desc": "Identifies the type of position transaction."
+  },
+  "710": {
+    "name": "PosReqID",
+    "desc": "Unique identifier for the position maintenance request as assigned by the submitter."
+  },
+  "711": {
+    "name": "NoUnderlyings",
+    "desc": "Number of underlying legs that make up the security."
+  },
+  "712": {
+    "name": "PosMaintAction",
+    "desc": "Maintenance Action to be performed."
+  },
+  "713": {
+    "name": "OrigPosReqRefID",
+    "desc": "Reference to the PosReqID (710) of a previous maintenance request that is being replaced or canceled."
+  },
+  "714": {
+    "name": "PosMaintRptRefID",
+    "desc": "Reference to a PosMaintRptID (721) from a previous Position Maintenance Report (AM) that is being replaced or canceled."
+  },
+  "715": {
+    "name": "ClearingBusinessDate",
+    "desc": "The \"Clearing Business Date\" referred to by this maintenance request."
+  },
+  "716": {
+    "name": "SettlSessID",
+    "desc": "Identifies a specific settlement session."
+  },
+  "717": {
+    "name": "SettlSessSubID",
+    "desc": "SubID value associated with SettlSessID (716) ."
+  },
+  "718": {
+    "name": "AdjustmentType",
+    "desc": "Type of adjustment to be applied, used for PCS & PAJ."
+  },
+  "719": {
+    "name": "ContraryInstructionIndicator",
+    "desc": "Required to be set to true (Y) when a Position Maintenance Request (AL) is being performed contrary to current money position."
+  },
+  "720": {
+    "name": "PriorSpreadIndicator",
+    "desc": "Indicates if requesting a rollover of prior day's spread submissions."
+  },
+  "721": {
+    "name": "PosMaintRptID",
+    "desc": "Unique identifier for this Position Report (AP)"
+  },
+  "722": {
+    "name": "PosMaintStatus",
+    "desc": "Status of Position Maintenance Request (AL) ."
+  },
+  "723": {
+    "name": "PosMaintResult",
+    "desc": "Result of Position Maintenance Request (AL) ."
+  },
+  "724": {
+    "name": "PosReqType",
+    "desc": "Unique identifier for the Position Maintenance Request (AL) as assigned by the submitter"
+  },
+  "725": {
+    "name": "ResponseTransportType",
+    "desc": "Identifies how the response to the request should be transmitted."
+  },
+  "726": {
+    "name": "ResponseDestination",
+    "desc": "URI (Uniform Resource Identifier) for details) or other pre-arranged value. Used in conjunction with ResponseTransportType (725) value of Out-of-Band to identify the out-of-band destination."
+  },
+  "727": {
+    "name": "TotalNumPosReports",
+    "desc": "Total number of Position Reports being returned."
+  },
+  "728": {
+    "name": "PosReqResult",
+    "desc": "Result of Request for Positions (AN) ."
+  },
+  "729": {
+    "name": "PosReqStatus",
+    "desc": "Status of Request for Positions (AN)"
+  },
+  "730": {
+    "name": "SettlPrice",
+    "desc": "Settlement price."
+  },
+  "731": {
+    "name": "SettlPriceType",
+    "desc": "Type of settlement price."
+  },
+  "732": {
+    "name": "UnderlyingSettlPrice",
+    "desc": "Underlying security's SettlPrice. See SettlPrice (730) field for description"
+  },
+  "733": {
+    "name": "UnderlyingSettlPriceType",
+    "desc": "Underlying security's SettlPriceType."
+  },
+  "734": {
+    "name": "PriorSettlPrice",
+    "desc": "Previous settlement price."
+  },
+  "735": {
+    "name": "NoQuoteQualifiers",
+    "desc": "Number of repeating groups of QuoteQualifiers."
+  },
+  "736": {
+    "name": "AllocSettlCurrency",
+    "desc": "Currency code of settlement denomination for a specific AllocAccount (79) ."
+  },
+  "737": {
+    "name": "AllocSettlCurrAmt",
+    "desc": "Total amount due expressed in settlement currency (includes the effect of the forex transaction) for a specific AllocAccount (79) ."
+  },
+  "738": {
+    "name": "InterestAtMaturity",
+    "desc": "Amount of interest (i.e. lump-sum) at maturity."
+  },
+  "739": {
+    "name": "LegDatedDate",
+    "desc": "The effective date of a new securities issue determined by its underwriters. Often but not always the same as the Issue Date and the Interest Accrual Date"
+  },
+  "740": {
+    "name": "LegPool",
+    "desc": "For Fixed Income, identifies MBS / ABS pool for a specific leg of a multi-leg instrument."
+  },
+  "741": {
+    "name": "AllocInterestAtMaturity",
+    "desc": "Amount of interest (i.e. lump-sum) at maturity at the account-level."
+  },
+  "742": {
+    "name": "AllocAccruedInterestAmt",
+    "desc": "Amount of Accrued Interest for convertible bonds and fixed income at the allocation-level."
+  },
+  "743": {
+    "name": "DeliveryDate",
+    "desc": "Date of delivery."
+  },
+  "744": {
+    "name": "AssignmentMethod",
+    "desc": "Method under which assignment was conducted."
+  },
+  "745": {
+    "name": "AssignmentUnit",
+    "desc": "Quantity Increment used in performing assignment."
+  },
+  "746": {
+    "name": "OpenInterest",
+    "desc": "Open interest that was eligible for assignment."
+  },
+  "747": {
+    "name": "ExerciseMethod",
+    "desc": "Exercise Method used to in performing assignment."
+  },
+  "748": {
+    "name": "TotalNumTradeReports",
+    "desc": "Total number of trade reports returned."
+  },
+  "749": {
+    "name": "TradeRequestResult",
+    "desc": "Result of Trade Request"
+  },
+  "750": {
+    "name": "TradeRequestStatus",
+    "desc": "Status of Trade Request."
+  },
+  "751": {
+    "name": "TradeReportRejectReason",
+    "desc": "Reason Trade Capture Request was rejected."
+  },
+  "752": {
+    "name": "SideMultiLegReportingType",
+    "desc": "Used to indicate if the side being reported on Trade Capture Report (AE) represents a leg of a multileg instrument or a single security."
+  },
+  "753": {
+    "name": "NoPosAmt",
+    "desc": "Number of position amount entries."
+  },
+  "754": {
+    "name": "AutoAcceptIndicator",
+    "desc": "Identifies whether or not an allocation has been automatically accepted on behalf of the Carry Firm by the Clearing House."
+  },
+  "755": {
+    "name": "AllocReportID",
+    "desc": "Unique identifier for Allocation Report (AS) message."
+  },
+  "756": {
+    "name": "NoNested2PartyIDs",
+    "desc": "Number of Nested2PartyID (757) , Nested2PartyIDSource (758) , and Nested2PartyRole (759) entries"
+  },
+  "757": {
+    "name": "Nested2PartyID",
+    "desc": "PartyID value within a \"second instance\" Nested repeating group."
+  },
+  "758": {
+    "name": "Nested2PartyIDSource",
+    "desc": "PartyIDSource value within a \"second instance\" Nested repeating group."
+  },
+  "759": {
+    "name": "Nested2PartyRole",
+    "desc": "PartyRole value within a \"second instance\" Nested repeating group."
+  },
+  "760": {
+    "name": "Nested2PartySubID",
+    "desc": "PartySubID value within a \"second instance\" Nested repeating group."
+  },
+  "761": {
+    "name": "BenchmarkSecurityIDSource",
+    "desc": "Identifies class or source of the BenchmarkSecurityID (699) value. Required if BenchmarkSecurityID (699) is specified."
+  },
+  "762": {
+    "name": "SecuritySubType",
+    "desc": "Sub-type qualification/identification of the SecurityType (167) (e.g. for SecurityType (167) =\"REPO\")."
+  },
+  "763": {
+    "name": "UnderlyingSecuritySubType",
+    "desc": "Underlying security's SecuritySubType."
+  },
+  "764": {
+    "name": "LegSecuritySubType",
+    "desc": "SecuritySubType of the leg instrument."
+  },
+  "765": {
+    "name": "AllowableOneSidednessPct",
+    "desc": "The maximum percentage that execution of one side of a program trade can exceed execution of the other."
+  },
+  "766": {
+    "name": "AllowableOneSidednessValue",
+    "desc": "The maximum amount that execution of one side of a program trade can exceed execution of the other."
+  },
+  "767": {
+    "name": "AllowableOneSidednessCurr",
+    "desc": "The currency that AllowableOneSidednessValue (766) is expressed in if AllowableOneSidednessValue (766) is used."
+  },
+  "768": {
+    "name": "NoTrdRegTimestamps",
+    "desc": "Number of TrdRegTimestamp (769) entries"
+  },
+  "769": {
+    "name": "TrdRegTimestamp",
+    "desc": "Traded / Regulatory timestamp value. Use to store time information required by government regulators or self regulatory organizations (such as an exchange or clearing house)."
+  },
+  "770": {
+    "name": "TrdRegTimestampType",
+    "desc": "Traded / Regulatory timestamp type."
+  },
+  "771": {
+    "name": "TrdRegTimestampOrigin",
+    "desc": "Text which identifies the \"origin\" (i.e. system which was used to generate the time stamp) for the Traded / Regulatory timestamp value."
+  },
+  "772": {
+    "name": "ConfirmRefID",
+    "desc": "Reference identifier to be used with ConfirmTransType (666) =Replace or Cancel"
+  },
+  "773": {
+    "name": "ConfirmType",
+    "desc": "Identifies the type of Confirmation (AK) message being sent."
+  },
+  "774": {
+    "name": "ConfirmRejReason",
+    "desc": "Identifies the reason for rejecting a Confirmation (AK) ."
+  },
+  "775": {
+    "name": "BookingType",
+    "desc": "Method for booking out this order. Used when notifying a broker that an order to be settled by that broker is to be booked out as an OTC derivative (e.g. CFD or similar)."
+  },
+  "776": {
+    "name": "IndividualAllocRejCode",
+    "desc": "Identified reason for rejecting an individual AllocAccount (79) detail."
+  },
+  "777": {
+    "name": "SettlInstMsgID",
+    "desc": "Unique identifier for Settlement Instructions (T) message."
+  },
+  "778": {
+    "name": "NoSettlInst",
+    "desc": "Number of settlement instructions within repeating group."
+  },
+  "779": {
+    "name": "LastUpdateTime",
+    "desc": "Timestamp of last update to data item (or creation if no updates made since creation)."
+  },
+  "780": {
+    "name": "AllocSettlInstType",
+    "desc": "Used to indicate whether settlement instructions are provided on an Allocation Instruction (J) message, and if not, how they are to be derived."
+  },
+  "781": {
+    "name": "NoSettlPartyIDs",
+    "desc": "Number of SettlPartyID (782) , SettlPartyIDSource (783) , and SettlPartyRole (784) entries"
+  },
+  "782": {
+    "name": "SettlPartyID",
+    "desc": "PartyID value within a settlement parties component. Nested repeating group."
+  },
+  "783": {
+    "name": "SettlPartyIDSource",
+    "desc": "PartyIDSource value within a settlement parties component."
+  },
+  "784": {
+    "name": "SettlPartyRole",
+    "desc": "PartyRole value within a settlement parties component."
+  },
+  "785": {
+    "name": "SettlPartySubID",
+    "desc": "PartySubID value within a settlement parties component."
+  },
+  "786": {
+    "name": "SettlPartySubIDType",
+    "desc": "Type of SettlPartySubID value."
+  },
+  "787": {
+    "name": "DlvyInstType",
+    "desc": "Used to indicate whether a delivery instruction is used for securities or cash settlement."
+  },
+  "788": {
+    "name": "TerminationType",
+    "desc": "Type of financing termination."
+  },
+  "789": {
+    "name": "NextExpectedMsgSeqNum",
+    "desc": "Next expected MsgSeqNum (34) value to be received."
+  },
+  "790": {
+    "name": "OrdStatusReqID",
+    "desc": "Can be used to uniquely identify a specific Order Status Request (H) message."
+  },
+  "791": {
+    "name": "SettlInstReqID",
+    "desc": "Unique ID of Settlement Instruction Request (AV) message"
+  },
+  "792": {
+    "name": "SettlInstReqRejCode",
+    "desc": "Identifies reason for rejection (of a Settlement Instruction Request (AV) message)."
+  },
+  "793": {
+    "name": "SecondaryAllocID",
+    "desc": "Secondary allocation identifier. Unlike the AllocID (70) , this can be shared across a number of allocation instruction (J) or allocation report (AS) messages, thereby making it possible to pass an identifier for an original allocation (J) message on multiple messages (e.g. from one party to a second to a third, across cancel and replace messages etc.)."
+  },
+  "794": {
+    "name": "AllocReportType",
+    "desc": "Describes the specific type or purpose of an Allocation Report (AS) message"
+  },
+  "795": {
+    "name": "AllocReportRefID",
+    "desc": "Reference identifier to be used with AllocTransType (71) =Replace or Cancel"
+  },
+  "796": {
+    "name": "AllocCancReplaceReason",
+    "desc": "Reason for cancelling or replacing an Allocation Instruction (J) or Allocation Report (AS) message"
+  },
+  "797": {
+    "name": "CopyMsgIndicator",
+    "desc": "Indicates whether or not this message is a drop copy of another message."
+  },
+  "798": {
+    "name": "AllocAccountType",
+    "desc": "Type of account associated with a confirmation or other trade-level message"
+  },
+  "799": {
+    "name": "OrderAvgPx",
+    "desc": "Average price for a specific order"
+  },
+  "800": {
+    "name": "OrderBookingQty",
+    "desc": "Quantity of the order that is being booked out as part of an Allocation Instruction (J) or Allocation Report (AS) message"
+  },
+  "801": {
+    "name": "NoSettlPartySubIDs",
+    "desc": "Number of SettlPartySubID (785) and SettlPartySubIDType (786) entries"
+  },
+  "802": {
+    "name": "NoPartySubIDs",
+    "desc": "Number of PartySubID (523) and PartySubIDType (803) entries"
+  },
+  "803": {
+    "name": "PartySubIDType",
+    "desc": "Type of PartySubID (523) value"
+  },
+  "804": {
+    "name": "NoNestedPartySubIDs",
+    "desc": "Number of NestedPartySubID (545) and NestedPartySubIDType (805) entries"
+  },
+  "805": {
+    "name": "NestedPartySubIDType",
+    "desc": "Type of NestedPartySubID (545) value."
+  },
+  "806": {
+    "name": "NoNested2PartySubIDs",
+    "desc": "Number of Nested2PartySubID (760) and Nested2PartySubIDType (807) entries. Second instance of NestedParties ."
+  },
+  "807": {
+    "name": "Nested2PartySubIDType",
+    "desc": "Type of Nested2PartySubID (760) value. Second instance of NestedParties ."
+  },
+  "808": {
+    "name": "AllocIntermedReqType",
+    "desc": "Response to allocation to be communicated to a counterparty through an intermediary, i.e. clearing house. Used in conjunction with AllocType (626) = \"Request to Intermediary\" and AllocReportType (794) = \"Request to Intermediary\""
+  },
+  "810": {
+    "name": "UnderlyingPx",
+    "desc": "Underlying price associate with a derivative instrument."
+  },
+  "811": {
+    "name": "PriceDelta",
+    "desc": "Delta calculated from theoretical price"
+  },
+  "812": {
+    "name": "ApplQueueMax",
+    "desc": "Used to specify the maximum number of application messages that can be queued before a corrective action needs to take place to resolve the queuing issue."
+  },
+  "813": {
+    "name": "ApplQueueDepth",
+    "desc": "Current number of application messages that were queued at the time that the message was created by the counterparty."
+  },
+  "814": {
+    "name": "ApplQueueResolution",
+    "desc": "Resolution taken when ApplQueueDepth (813) exceeds ApplQueueMax (812) or system specified maximum queue size."
+  },
+  "815": {
+    "name": "ApplQueueAction",
+    "desc": "Action to take to resolve an application message queue (backlog)."
+  },
+  "816": {
+    "name": "NoAltMDSource",
+    "desc": "Number of alternative market data sources"
+  },
+  "817": {
+    "name": "AltMDSourceID",
+    "desc": "Session layer source for market data"
+  },
+  "818": {
+    "name": "SecondaryTradeReportID",
+    "desc": "Secondary trade report identifier - can be used to associate an additional identifier with a trade."
+  },
+  "819": {
+    "name": "AvgPxIndicator",
+    "desc": "Average Pricing Indicator"
+  },
+  "820": {
+    "name": "TradeLinkID",
+    "desc": "Used to link a group of trades together. Useful for linking a group of trades together for average price calculations."
+  },
+  "821": {
+    "name": "OrderInputDevice",
+    "desc": "Specific device number, terminal number or station where order was entered"
+  },
+  "822": {
+    "name": "UnderlyingTradingSessionID",
+    "desc": "Trading Session in which the underlying instrument trades"
+  },
+  "823": {
+    "name": "UnderlyingTradingSessionSubID",
+    "desc": "Trading Session sub identifier in which the underlying instrument trades"
+  },
+  "824": {
+    "name": "TradeLegRefID",
+    "desc": "Reference to the leg of a multileg instrument to which this trade refers"
+  },
+  "825": {
+    "name": "ExchangeRule",
+    "desc": "Used to report any exchange rules that apply to this trade."
+  },
+  "826": {
+    "name": "TradeAllocIndicator",
+    "desc": "Identifies how the trade is to be allocated"
+  },
+  "827": {
+    "name": "ExpirationCycle",
+    "desc": "Part of trading cycle when an instrument expires. Field is applicable for derivatives."
+  },
+  "828": {
+    "name": "TrdType",
+    "desc": "Type of Trade"
+  },
+  "829": {
+    "name": "TrdSubType",
+    "desc": "Further qualification to the trade type"
+  },
+  "830": {
+    "name": "TransferReason",
+    "desc": "Reason trade is being transferred"
+  },
+  "832": {
+    "name": "TotNumAssignmentReports",
+    "desc": "Total Number of Assignment Reports being returned to a firm"
+  },
+  "833": {
+    "name": "AsgnRptID",
+    "desc": "Unique identifier for the Assignment Report (AW)"
+  },
+  "834": {
+    "name": "ThresholdAmount",
+    "desc": "Amount that a position has to be in the money before it is exercised."
+  },
+  "835": {
+    "name": "PegMoveType",
+    "desc": "Describes whether peg is static or floats"
+  },
+  "836": {
+    "name": "PegOffsetType",
+    "desc": "Type of Peg Offset value"
+  },
+  "837": {
+    "name": "PegLimitType",
+    "desc": "Type of Peg Limit"
+  },
+  "838": {
+    "name": "PegRoundDirection",
+    "desc": "If the calculated peg price is not a valid tick price, specifies whether to round the price to be more or less aggressive"
+  },
+  "839": {
+    "name": "PeggedPrice",
+    "desc": "The price the order is currently pegged at"
+  },
+  "840": {
+    "name": "PegScope",
+    "desc": "The scope of the peg"
+  },
+  "841": {
+    "name": "DiscretionMoveType",
+    "desc": "Describes whether discretionay price is static or floats"
+  },
+  "842": {
+    "name": "DiscretionOffsetType",
+    "desc": "Type of Discretion Offset value"
+  },
+  "843": {
+    "name": "DiscretionLimitType",
+    "desc": "Type of Discretion Limit"
+  },
+  "844": {
+    "name": "DiscretionRoundDirection",
+    "desc": "If the calculated discretionary price is not a valid tick price, specifies whether to round the price to be more or less aggressive"
+  },
+  "845": {
+    "name": "DiscretionPrice",
+    "desc": "The current discretionary price of the order"
+  },
+  "846": {
+    "name": "DiscretionScope",
+    "desc": "The scope of the discretion"
+  },
+  "847": {
+    "name": "TargetStrategy",
+    "desc": "The target strategy of the order"
+  },
+  "848": {
+    "name": "TargetStrategyParameters",
+    "desc": "Field to allow further specification of the TargetStrategy (847) - usage to be agreed between counterparties"
+  },
+  "849": {
+    "name": "ParticipationRate",
+    "desc": "For a TargetStrategy (847) =Participate order specifies the target particpation rate. For other order types this is a volume limit (i.e. do not be more than this percent of the market volume)"
+  },
+  "850": {
+    "name": "TargetStrategyPerformance",
+    "desc": "For communication of the performance of the order versus the target strategy"
+  },
+  "851": {
+    "name": "LastLiquidityInd",
+    "desc": "Indicator to identify whether this fill was a result of a liquidity provider providing or liquidity taker taking the liquidity. Applicable only for OrdStatus (39) of Partial or Filled."
+  },
+  "852": {
+    "name": "PublishTrdIndicator",
+    "desc": "Indicates if a trade should be reported via a market reporting service."
+  },
+  "853": {
+    "name": "ShortSaleReason",
+    "desc": "Reason for short sale."
+  },
+  "854": {
+    "name": "QtyType",
+    "desc": "Type of quantity specified in a quantity field"
+  },
+  "855": {
+    "name": "SecondaryTrdType",
+    "desc": "Additional TrdType (828) assigned to a trade by trade match system."
+  },
+  "856": {
+    "name": "TradeReportType",
+    "desc": "Type of Trade Report"
+  },
+  "857": {
+    "name": "AllocNoOrdersType",
+    "desc": "Indicates how the orders being booked and allocated by an Allocation Instruction (J) or Allocation Report (AS) message are identified, i.e. by explicit definition in the NoOrders (73) group or not."
+  },
+  "858": {
+    "name": "SharedCommission",
+    "desc": "Commission to be shared with a third party, e.g. as part of a directed brokerage commission sharing arrangement."
+  },
+  "859": {
+    "name": "ConfirmReqID",
+    "desc": "Unique identifier for a Confirmation Request message"
+  },
+  "860": {
+    "name": "AvgParPx",
+    "desc": "Used to express average price as percent of par (used where AvgPx (6) field is expressed in some other way)"
+  },
+  "861": {
+    "name": "ReportedPx",
+    "desc": "Reported price (used to differentiate from AvgPx (6) on a confirmation of a marked-up or marked-down principal trade)"
+  },
+  "862": {
+    "name": "NoCapacities",
+    "desc": "Number of repeating OrderCapacity entries."
+  },
+  "863": {
+    "name": "OrderCapacityQty",
+    "desc": "Quantity executed under a specific OrderCapacity (e.g. quantity executed as agent, quantity executed as principal)"
+  },
+  "864": {
+    "name": "NoEvents",
+    "desc": "Number of repeating EventType (865) entries."
+  },
+  "865": {
+    "name": "EventType",
+    "desc": "Code to represent the type of event"
+  },
+  "866": {
+    "name": "EventDate",
+    "desc": "Date of event"
+  },
+  "867": {
+    "name": "EventPx",
+    "desc": "Predetermined price of issue at event, if applicable"
+  },
+  "868": {
+    "name": "EventText",
+    "desc": "Comments related to the event."
+  },
+  "869": {
+    "name": "PctAtRisk",
+    "desc": "Percent at risk due to lowest possible call."
+  },
+  "870": {
+    "name": "NoInstrAttrib",
+    "desc": "Number of repeating InstrAttribType (871) entries."
+  },
+  "871": {
+    "name": "InstrAttribType",
+    "desc": "Code to represent the type of instrument attribute"
+  },
+  "872": {
+    "name": "InstrAttribValue",
+    "desc": "Attribute value appropriate to the InstrAttribType (871) field."
+  },
+  "873": {
+    "name": "DatedDate",
+    "desc": "The effective date of a new securities issue determined by its underwriters. Often but not always the same as the IssueDate (225) and the InterestAccrualDate (874)"
+  },
+  "874": {
+    "name": "InterestAccrualDate",
+    "desc": "The start date used for calculating accrued interest on debt instruments which are being sold between interest payment dates. Often but not always the same as the IssueDate (225) and the DatedDate (873)"
+  },
+  "875": {
+    "name": "CPProgram",
+    "desc": "The program under which a commercial paper is issued"
+  },
+  "876": {
+    "name": "CPRegType",
+    "desc": "The registration type of a commercial paper issuance"
+  },
+  "877": {
+    "name": "UnderlyingCPProgram",
+    "desc": "The program under which the underlying commercial paper is issued"
+  },
+  "878": {
+    "name": "UnderlyingCPRegType",
+    "desc": "The registration type of the underlying commercial paper issuance"
+  },
+  "879": {
+    "name": "UnderlyingQty",
+    "desc": "Unit amount of the underlying security (par, shares, currency, etc.)"
+  },
+  "880": {
+    "name": "TrdMatchID",
+    "desc": "Identifier assigned to a trade by a matching system."
+  },
+  "881": {
+    "name": "SecondaryTradeReportRefID",
+    "desc": "Used to refer to a previous SecondaryTradeReportRefID (881) when amending the transaction (cancel, replace, release, or reversal)."
+  },
+  "882": {
+    "name": "UnderlyingDirtyPrice",
+    "desc": "Price (percent-of-par or per unit) of the underlying security or basket. \"Dirty\" means it includes accrued interest"
+  },
+  "883": {
+    "name": "UnderlyingEndPrice",
+    "desc": "Price (percent-of-par or per unit) of the underlying security or basket at the end of the agreement."
+  },
+  "884": {
+    "name": "UnderlyingStartValue",
+    "desc": "Currency value attributed to this collateral at the start of the agreement"
+  },
+  "885": {
+    "name": "UnderlyingCurrentValue",
+    "desc": "Currency value currently attributed to this collateral"
+  },
+  "886": {
+    "name": "UnderlyingEndValue",
+    "desc": "Currency value attributed to this collateral at the end of the agreement"
+  },
+  "887": {
+    "name": "NoUnderlyingStips",
+    "desc": "Number of underlying stipulation entries"
+  },
+  "888": {
+    "name": "UnderlyingStipType",
+    "desc": "Type of stipulation."
+  },
+  "889": {
+    "name": "UnderlyingStipValue",
+    "desc": "Value of stipulation."
+  },
+  "890": {
+    "name": "MaturityNetMoney",
+    "desc": "Net Money at maturity if Zero Coupon and maturity value is different from par value"
+  },
+  "891": {
+    "name": "MiscFeeBasis",
+    "desc": "Defines the unit for a miscellaneous fee."
+  },
+  "892": {
+    "name": "TotNoAllocs",
+    "desc": "Total number of NoAlloc entries across all messages. Should be the sum of all NoAllocs (78) in each message that has repeating NoAlloc entries related to the same AllocID (70) or AllocReportID (755) . Used to support fragmentation."
+  },
+  "893": {
+    "name": "LastFragment",
+    "desc": "Indicates whether this message is the last in a sequence of messages for those messages that support fragmentation, such as Allocation Instruction (J) , Mass Quote (i) , Security List (y) , Derivative Security List (AA)"
+  },
+  "894": {
+    "name": "CollReqID",
+    "desc": "Collateral Request (AX) Identifier"
+  },
+  "895": {
+    "name": "CollAsgnReason",
+    "desc": "Reason for Collateral Assignment (AY)"
+  },
+  "896": {
+    "name": "CollInquiryQualifier",
+    "desc": "Collateral inquiry qualifiers"
+  },
+  "897": {
+    "name": "NoTrades",
+    "desc": "Number of trades in repeating group."
+  },
+  "898": {
+    "name": "MarginRatio",
+    "desc": "The fraction of the cash consideration that must be collateralized, expressed as a percent. A MarginRatio (898) of 102% indicates that the value of the collateral (after deducting for \"haircut\") must exceed the cash consideration by 2%."
+  },
+  "899": {
+    "name": "MarginExcess",
+    "desc": "Excess margin amount (deficit if value is negative)"
+  },
+  "900": {
+    "name": "TotalNetValue",
+    "desc": "TotalNetValue (900) is determined as follows:"
+  },
+  "901": {
+    "name": "CashOutstanding",
+    "desc": "Starting consideration less repayments"
+  },
+  "902": {
+    "name": "CollAsgnID",
+    "desc": "Collateral Assignment (AY) Identifier"
+  },
+  "903": {
+    "name": "CollAsgnTransType",
+    "desc": "Collateral Assignment (AY) Transaction Type"
+  },
+  "904": {
+    "name": "CollRespID",
+    "desc": "Collateral Response (AZ) Identifier"
+  },
+  "905": {
+    "name": "CollAsgnRespType",
+    "desc": "Collateral Assignment (AY) Response Type"
+  },
+  "906": {
+    "name": "CollAsgnRejectReason",
+    "desc": "Collateral Assignment (AY) Reject Reason"
+  },
+  "907": {
+    "name": "CollAsgnRefID",
+    "desc": "Collateral Assignment (AY) Identifier to which a transaction refers"
+  },
+  "908": {
+    "name": "CollRptID",
+    "desc": "Collateral Report (BA) Identifier"
+  },
+  "909": {
+    "name": "CollInquiryID",
+    "desc": "Collateral Inquiry (BB) Identifier"
+  },
+  "910": {
+    "name": "CollStatus",
+    "desc": "Collateral Status"
+  },
+  "911": {
+    "name": "TotNumReports",
+    "desc": "Total number or reports returned in response to a request"
+  },
+  "912": {
+    "name": "LastRptRequested",
+    "desc": "Indicates whether this message is that last report message in response to a request, such as Order Mass Status Request (AF) ."
+  },
+  "913": {
+    "name": "AgreementDesc",
+    "desc": "The full name of the base standard agreement, annexes and amendments in place between the principals applicable to a financing transaction."
+  },
+  "914": {
+    "name": "AgreementID",
+    "desc": "A common reference to the applicable standing agreement between the counterparties to a financing transaction."
+  },
+  "915": {
+    "name": "AgreementDate",
+    "desc": "A reference to the date the underlying agreement specified by AgreementID (914) and AgreementDesc (913) was executed."
+  },
+  "916": {
+    "name": "StartDate",
+    "desc": "Start date of a financing deal, i.e. the date the buyer pays the seller cash and takes control of the collateral"
+  },
+  "917": {
+    "name": "EndDate",
+    "desc": "End date of a financing deal, i.e. the date the seller reimburses the buyer and takes back control of the collateral"
+  },
+  "918": {
+    "name": "AgreementCurrency",
+    "desc": "Contractual currency forming the basis of a financing agreement and associated transactions. Usually, but not always, the same as the trade currency."
+  },
+  "919": {
+    "name": "DeliveryType",
+    "desc": "Identifies type of settlement"
+  },
+  "920": {
+    "name": "EndAccruedInterestAmt",
+    "desc": "Accrued Interest Amount applicable to a financing transaction on the End Date."
+  },
+  "921": {
+    "name": "StartCash",
+    "desc": "Starting dirty cash consideration of a financing deal, i.e. paid to the seller on the Start Date."
+  },
+  "922": {
+    "name": "EndCash",
+    "desc": "Ending dirty cash consideration of a financing deal. i.e. reimbursed to the buyer on the End Date."
+  },
+  "923": {
+    "name": "UserRequestID",
+    "desc": "Unique identifier for a User Request (BE) ."
+  },
+  "924": {
+    "name": "UserRequestType",
+    "desc": "Indicates the action required by a User Request (BE) message"
+  },
+  "925": {
+    "name": "NewPassword",
+    "desc": "New Password or passphrase"
+  },
+  "926": {
+    "name": "UserStatus",
+    "desc": "Indicates the status of a user"
+  },
+  "927": {
+    "name": "UserStatusText",
+    "desc": "A text description associated with a user status."
+  },
+  "928": {
+    "name": "StatusValue",
+    "desc": "Indicates the status of a network connection"
+  },
+  "929": {
+    "name": "StatusText",
+    "desc": "A text description associated with a network status."
+  },
+  "930": {
+    "name": "RefCompID",
+    "desc": "Assigned value used to identify a firm."
+  },
+  "931": {
+    "name": "RefSubID",
+    "desc": "Assigned value used to identify specific elements within a firm."
+  },
+  "932": {
+    "name": "NetworkResponseID",
+    "desc": "Unique identifier for a network response."
+  },
+  "933": {
+    "name": "NetworkRequestID",
+    "desc": "Unique identifier for a network resquest."
+  },
+  "934": {
+    "name": "LastNetworkResponseID",
+    "desc": "Identifier of the previous Network (Counterparty System) Status Response (BD) message sent to a counterparty, used to allow incremental updates."
+  },
+  "935": {
+    "name": "NetworkRequestType",
+    "desc": "Indicates the type and level of details required for a Network (Counterparty System) Status Request (BC) message"
+  },
+  "936": {
+    "name": "NoCompIDs",
+    "desc": "Number of CompID entries in a repeating group."
+  },
+  "937": {
+    "name": "NetworkStatusResponseType",
+    "desc": "Indicates the type of Network (Counterparty System) Status Response (BD) message."
+  },
+  "938": {
+    "name": "NoCollInquiryQualifier",
+    "desc": "Number of CollInquiryQualifier entries in a repeating group."
+  },
+  "939": {
+    "name": "TrdRptStatus",
+    "desc": "Trade Report Status"
+  },
+  "940": {
+    "name": "AffirmStatus",
+    "desc": "Identifies the status of the Confirmation Ack (AU) ."
+  },
+  "941": {
+    "name": "UnderlyingStrikeCurrency",
+    "desc": "Currency in which the strike price of an underlying instrument is denominated"
+  },
+  "942": {
+    "name": "LegStrikeCurrency",
+    "desc": "Currency in which the strike price of a instrument leg of a multileg instrument is denominated"
+  },
+  "943": {
+    "name": "TimeBracket",
+    "desc": "A code that represents a time interval in which a fill or trade occurred."
+  },
+  "944": {
+    "name": "CollAction",
+    "desc": "Action proposed for an Underlying Instrument instance."
+  },
+  "945": {
+    "name": "CollInquiryStatus",
+    "desc": "Status of Collateral Inquiry (BB)"
+  },
+  "946": {
+    "name": "CollInquiryResult",
+    "desc": "Result returned in response to Collateral Inquiry (BB)"
+  },
+  "947": {
+    "name": "StrikeCurrency",
+    "desc": "Currency in which the StrikePrice (202) is denominated."
+  },
+  "948": {
+    "name": "NoNested3PartyIDs",
+    "desc": "Number of Nested3PartyID (949) , Nested3PartyIDSource (950) , and Nested3PartyRole (951) entries"
+  },
+  "949": {
+    "name": "Nested3PartyID",
+    "desc": "PartyID value within a \"third instance\" Nested repeating group."
+  },
+  "950": {
+    "name": "Nested3PartyIDSource",
+    "desc": "PartyIDSource value within a \"third instance\" Nested repeating group."
+  },
+  "951": {
+    "name": "Nested3PartyRole",
+    "desc": "PartyRole value within a \"third instance\" Nested repeating group."
+  },
+  "952": {
+    "name": "NoNested3PartySubIDs",
+    "desc": "Number of Nested3PartySubID (953) entries"
+  },
+  "953": {
+    "name": "Nested3PartySubID",
+    "desc": "PartySubID value within a \"third instance\" Nested repeating group."
+  },
+  "954": {
+    "name": "Nested3PartySubIDType",
+    "desc": "PartySubIDType value within a \"third instance\" Nested repeating group."
+  },
+  "955": {
+    "name": "LegContractSettlMonth",
+    "desc": "Specifies when the contract (i.e. MBS/TBA) will settle."
+  },
+  "956": {
+    "name": "LegInterestAccrualDate",
+    "desc": "The start date used for calculating accrued interest on debt instruments which are being sold between interest payment dates. Often but not always the same as the IssueDate (225) and the DatedDate (873)"
+  }
+}
