@@ -1,0 +1,51 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fix It</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/gh/kylefox/jquery-tablesort@master/jquery.tablesort.js"></script>
+    <script type="text/javascript" src='index.js'></script>
+
+    <style>
+        table {
+            table-layout: fixed;
+            width: 30%;
+            text-align: left;
+        }
+
+        thead th:nth-child(1) {
+            width: 10%;
+        }
+
+        thead th:nth-child(2) {
+            width: 30%;
+        }
+
+        thead th:nth-child(3) {
+            width: 60%;
+        }
+
+        th, td {
+            margin: 4px;
+            border: 0.5px solid black;
+        }
+    </style>
+
+</head>
+<body>
+<div>
+<textarea placeholder="Fix goes here" id="rawFix" rows="4" cols="50">
+</textarea>
+</div>
+<button id="parseFixButton">Parse</button>
+<button id="clearButton">Clear</button>
+<div>
+    <div id="results_table">
+
+    </div>
+</div>
+</body>
+</html>
