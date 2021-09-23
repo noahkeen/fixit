@@ -5,7 +5,8 @@ from bs4 import BeautifulSoup
 
 def fetch_and_build(fix_version):
     result_map = {}
-    src_url = f'https://btobits.com/fixopaedia/fixdic{fix_version}/fields_by_tag_.html'
+    ver_no_dec = fix_version.replace('.', '')
+    src_url = f'https://btobits.com/fixopaedia/fixdic{ver_no_dec}/fields_by_tag_.html'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0'}
     response = requests.get(src_url, headers=headers)
     soup = BeautifulSoup(response.content, 'lxml')
@@ -24,10 +25,10 @@ def fetch_and_build(fix_version):
                     'desc': " ".join(desc.text.split())
                 }
     with open(f'js/fixFields_{fix_version}.js', 'w') as outfile:
-        outfile.write(f'let  fix_fields_{fix_version}=')
+        outfile.write(f'let  fix_fields_{ver_no_dec}=')
         json.dump(result_map, outfile)
 
 
 if __name__ == "__main__":
-    for version in ['40', '41', '42', '43', '44', '50']:
+    for version in ['4.0', '4.1', '4.2', '4.3', '4.4', '5.0']:
         fetch_and_build(version)

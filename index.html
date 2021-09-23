@@ -62,17 +62,7 @@
     }
 
     function guessFixVersion(fix) {
-        let ver_guess = fix.substring(6, 9)
-        switch (ver_guess) {
-            case "4.0":
-            case "4.1":
-            case "4.3":
-            case "4.4":
-            case "4.5":
-                return ver_guess.replace('.', '');
-            default:
-                return "42";
-        }
+        return fix.substring(6, 9)
     }
 
     function getEscapeCharacter(fix) {
@@ -117,8 +107,6 @@
     }
 
 
-
-
     $(function () {
         self = this;
 
@@ -147,7 +135,8 @@
             $.getScript("https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_" + fix_ver + ".js", function (data) {
                 let escape_char = getEscapeCharacter(raw_fix)
                 if (!escape_char) return;
-                self.parse_fix(escape_char, raw_fix, data)
+                let fix_fields_to_use = window['fix_fields_' + fix_ver.replace('.','')]
+                self.parse_fix(escape_char, raw_fix, fix_fields_to_use)
             });
         });
 
