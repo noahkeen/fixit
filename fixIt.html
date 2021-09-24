@@ -154,7 +154,7 @@
                 .append('<tr />').children('tr').append('<th>Tag</th><th>Name</th><th>Value</th>');
             let $tbody = $table.append('<tbody />').children('tbody');
             rows_to_add.forEach(function (row) {
-                let ahref = '<a href=\"https://btobits.com/fixopaedia/fixdic' + fix_ver + '/' + row.data.href + "\">"
+                let ahref = '<a target=\"_blank\" href=\"https://btobits.com/fixopaedia/fixdic' + fix_ver.replace('.','') + '/' + row.data.href + "\">"
                 $tbody.append('<tr title=\"' + row.data.desc + '\"/>').children('tr:last')
                     .append('<td>' + ahref  + row.key + '</a></td>')
                     .append('<td>' + ahref  + row.data.name + '</a></td>')
