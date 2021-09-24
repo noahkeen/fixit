@@ -3,7 +3,7 @@ import json
 from bs4 import BeautifulSoup
 
 
-def fetch_and_build(fix_version):
+def fetch_and_build(fix_version, fix_it_version):
     result_map = {}
     ver_no_dec = fix_version.replace('.', '')
     src_url = f'https://btobits.com/fixopaedia/fixdic{ver_no_dec}/fields_by_tag_.html'
@@ -24,11 +24,12 @@ def fetch_and_build(fix_version):
                     'name': name,
                     'desc': " ".join(desc.text.split())
                 }
-    with open(f'js/fixFields_{fix_version}.js', 'w') as outfile:
+    with open(f'./cdn/fixFields_{fix_version}_{fix_it_version}.js', 'w') as outfile:
         outfile.write(f'let  fix_fields_{ver_no_dec}=')
         json.dump(result_map, outfile)
 
 
 if __name__ == "__main__":
+    fix_it_ver = "v1"
     for version in ['4.0', '4.1', '4.2', '4.3', '4.4', '5.0']:
-        fetch_and_build(version)
+        fetch_and_build(version, fix_it_ver)

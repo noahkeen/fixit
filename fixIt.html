@@ -6,12 +6,12 @@
     <title>Fix It</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/kylefox/jquery-tablesort@master/jquery.tablesort.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.0.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.2.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.3.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_4.4.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/js/fixFields_5.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/cdn/fixFields_4.0_v1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/cdn/fixFields_4.1_v1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/cdn/fixFields_4.2_v1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/cdn/fixFields_4.3_v1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/cdn/fixFields_4.4_v1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noahkeen/fixit@main/cdn/fixFields_5.0_v1.js"></script>
 
     <style>
         table {
@@ -69,7 +69,18 @@
     }
 
     function guessFixVersion(fix) {
-        return fix.substring(6, 9)
+        let guess_ver = fix.substring(6, 9);
+        switch (guess_ver) {
+            case "4.0":
+            case "4.1":
+            case "4.2":
+            case "4.3":
+            case "4.4":
+            case "5.0":
+                return guess_ver;
+            default:
+                return "4.2";
+        }
     }
 
     function getFixFieldData(fix_ver) {
@@ -94,16 +105,12 @@
         if (escp_guess === '^') {
             escp_guess = fix.substring(9, 11)
         } else if (isValdEscapeCharacter(escp_guess)) {
-            if (escp_guess === '^') {
-                escp_guess = fix.substring(9, 11)
-            } else if (fix.indexOf('^')) {
-                escp_guess = '^'
-            } else if (fix.indexOf('|')) {
+            if (fix.indexOf('|')) {
                 escp_guess = '|'
             } else if (fix.indexOf('~')) {
                 escp_guess = '~'
             } else {
-                alert('Unble to determine field separator. Results Try using : \u0001,^,|,~,')
+                alert('Unble to determine field separator. Results Try using : \u0001,^A,|,~')
                 return null;
             }
         }

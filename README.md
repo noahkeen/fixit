@@ -1,21 +1,12 @@
-# fixit_CDN
+# fixit.html
 
-### Standalone single file FIX parser and displayer
-
-This repo exists to update content for fixIt.html's CDN links
-
-A simpler repo https://github.com/noahkeen/fixit has just fixIt.html and is all you need as a user
+### Single HMTL file FIX parser and displayer. 
 
 To Use:
 
-- run : 'pyhton3 fetch_and_build_fixFields_files.py'
-- it will scrape fixopaedia at https://btobits.com/fixopaedia and build js files corresponding to fix versions in js dir
-- Note - be sure to change file URI (name or branch) to a new value
-    - URI must be new for CDN to pick up (it caches first time and only then)
-- update CDN paths to new version in fixIt.heml
-- check in 
-- update fixIt.html in https://github.com/noahkeen/fixit
-
-    
-    
-    
+- Download fixIt.html
+- The single fixIt.html file is all that is needed. 
+- All processing is local to a users browser - no worries about anyone seeing your FIX secrets!
+- It references this git repo via a CDN to get the appropriate FIX Data Dictionary
+- The file can be placed anywhere : on your desktop, any system folder, a shared Network Dir, a static web directory
+- Share it, Email it, Gift it to anyone in your life who needs to parse some FIX 
