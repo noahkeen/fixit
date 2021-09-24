@@ -114,7 +114,6 @@
                 return null;
             }
         }
-        console.log('Using separator : ' + escp_guess)
         return escp_guess;
     }
 
@@ -122,25 +121,25 @@
     $(function () {
         let self = this;
 
-        self.parse_fix = function (escape_char, raw_fix, fix_fields) {
+        self.parse_fix = function (fix_ver, escape_char, raw_fix, fix_fields) {
             let results_rows = []
             let fields = raw_fix.split(escape_char)
             fields.forEach(function (field) {
                 if (field.trim().length > 0) {
                     let field_val = field.split("=")
-                    let desc = '';
+                    let field_data = '';
                     if (field_val[0] in fix_fields) {
-                        desc = fix_fields[field_val[0]];
+                        field_data = fix_fields[field_val[0]];
                     }
                     let found_field = {
                         key: field_val[0],
                         val: field_val[1],
-                        data: desc
+                        data: field_data,
                     }
                     results_rows.push(found_field);
                 }
             })
-            self.generateTable(results_rows)
+            self.generateTable(results_rows, fix_ver)
         }
 
         self.clear = function () {
@@ -149,18 +148,17 @@
             $("#notes").html('')
         }
 
-        self.generateTable = function (rows_to_add) {
+        self.generateTable = function (rows_to_add, fix_ver) {
             let $table = $('<table>');
             $table.append('<thead>').children('thead')
                 .append('<tr />').children('tr').append('<th>Tag</th><th>Name</th><th>Value</th>');
             let $tbody = $table.append('<tbody />').children('tbody');
-
             rows_to_add.forEach(function (row) {
+                let ahref = '<a href=\"https://btobits.com/fixopaedia/fixdic' + fix_ver + '/' + row.data.href + "\">"
                 $tbody.append('<tr title=\"' + row.data.desc + '\"/>').children('tr:last')
-                    .append("<td>" + row.key + "</td>")
-                    .append("<td>" + row.data.name + "</td>")
+                    .append('<td>' + ahref  + row.key + '</a></td>')
+                    .append('<td>' + ahref  + row.data.name + '</a></td>')
                     .append("<td>" + row.val + "</td>");
-
             })
 
             $('#results_table').empty()
@@ -175,7 +173,7 @@
             let fix_ver = guessFixVersion(raw_fix)
             let fix_fields_to_use = getFixFieldData(fix_ver)
             $("#notes").html('Fix Ver: ' + fix_ver + ' detected, Using Delim: ' + escape_char)
-            self.parse_fix(escape_char, raw_fix, fix_fields_to_use)
+            self.parse_fix(fix_ver, escape_char, raw_fix, fix_fields_to_use)
         });
 
         $("#clearButton").on('click', function () {

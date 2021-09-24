@@ -14,15 +14,17 @@ def fetch_and_build(fix_version, fix_it_version):
     for row in rows:
         name = row.find('td', class_='name')
         if name:
-            field_and_name = row.find('a')
+            anchor = row.find('a')
             desc = row.find('td', class_='descr')
-            if field_and_name and desc:
-                field_and_name = field_and_name.text
+            if anchor and desc:
+                href = anchor['href']
+                field_and_name = anchor.text
                 indx = field_and_name.index(')')
                 field, name = field_and_name[1:indx].strip(), field_and_name[indx + 1:].strip()
                 result_map[field] = {
                     'name': name,
-                    'desc': " ".join(desc.text.split())
+                    'desc': " ".join(desc.text.split()),
+                    'href': href
                 }
     with open(f'./cdn/fixFields_{fix_version}_{fix_it_version}.js', 'w') as outfile:
         outfile.write(f'let  fix_fields_{ver_no_dec}=')
